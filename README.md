@@ -1,2 +1,0 @@
-# glioma-app
-glioma-app
