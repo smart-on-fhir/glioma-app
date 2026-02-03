@@ -28,7 +28,7 @@ export default function PatientView() {
                             <td style={{width: "20px"}} className="no-hover"></td>
                             <td style={{width: "250px"}}>
                                 <span className="text-success">
-                                    IBD Surgery<br/>
+                                    Glioma Surgery<br/>
                                     <b>required</b>
                                 </span>
                                 <br/>
@@ -37,7 +37,7 @@ export default function PatientView() {
                             <td style={{width: "20px"}} className="no-hover"></td>
                             <td style={{width: "250px"}}>
                                 <span className="text-success">
-                                    Chance of anti-TNF<br/>
+                                    Chance of treatment<br/>
                                     <b>response</b>
                                 </span>
                                 <br/>
@@ -45,7 +45,7 @@ export default function PatientView() {
                             </td>
                             <td style={{width: "250px"}}>
                                 <span className="text-success">
-                                    Chance of anti-TNF<br/>
+                                    Chance of treatment<br/>
                                     <b>non-response</b>
                                 </span>
                                 <br/>
@@ -81,9 +81,9 @@ export default function PatientView() {
                                 <table className="table table-sm small w-100 table-hover mt-2">
                                     <thead>
                                         <tr>
-                                            <th className="text-start pb-2 text-success">IBD Drug Class</th>
-                                            <th className="text-center pb-2 text-success" style={{width: "7em"}}># Patients</th>
-                                            <th className="text-start pb-2 text-success text-nowrap" colSpan={2} style={{width: "160px"}}>Surgery free survival years</th>
+                                            <th className="text-start pb-2 text-success">Glioma Drug Class</th>
+                                            <th className="text-center pb-2 text-success" style={{width: "7em"}}>Glioma</th>
+                                            <th className="text-start pb-2 text-success text-nowrap" colSpan={2} style={{width: "160px"}}>Stable condition</th>
                                         </tr>
                                     </thead>
                                     <tbody id="population-table-body">

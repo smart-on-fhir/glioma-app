@@ -19,7 +19,12 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          REPO_BASE: /glioma-app/
         run: npm run build
+
+      - name: Ensure 404 for client-side routing
+        run: cp dist/index.html dist/404.html || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

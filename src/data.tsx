@@ -27,12 +27,12 @@ export const patients: Patient[] = [
                 </a>
             ),
             tableRows: [
-                { drugClass: "Aminosalicylate" , patients: 202, boxplot: [0.18, 1.31, 2.91, 5.18, 9.61 ] },
-                { drugClass: "Anti-integrin"   , patients: 54 , boxplot: [0.06, 0.62, 1.34, 1.99, 5.11 ] },
-                { drugClass: "Anti-interleukin", patients: 49 , boxplot: [0.35, 0.9 , 1.47, 3.11, 7.24 ] },
-                { drugClass: "Anti-TNF"        , patients: 287, boxplot: [0.14, 1.03, 2.25, 4.46, 8.47 ] },
-                { drugClass: "Corticosteroid"  , patients: 320, boxplot: [0.11, 1.18, 2.93, 5.63, 11.11] },
-                { drugClass: "Immunomodulator" , patients: 226, boxplot: [0.23, 1.46, 3.16, 6.1 , 9.83 ] }
+                { drugClass: "CV chemotherapy"              , patients: 202, boxplot: [0.18, 1.31, 2.91, 5.18, 9.61 ] },
+                { drugClass: "MEK inhibitors"               , patients: 54 , boxplot: [0.06, 0.62, 1.34, 1.99, 5.11 ] },
+                { drugClass: "BRAF inhibitors"              , patients: 49 , boxplot: [0.35, 0.9 , 1.47, 3.11, 7.24 ] },
+                { drugClass: "Platinum therapies"      , patients: 287, boxplot: [0.14, 1.03, 2.25, 4.46, 8.47 ] },
+                { drugClass: "Alkylating agents"    , patients: 320, boxplot: [0.11, 1.18, 2.93, 5.63, 11.11] },
+                { drugClass: "Antimetabolites"      , patients: 226, boxplot: [0.23, 1.46, 3.16, 6.1 , 9.83 ] }
             ]
         },
 
@@ -41,19 +41,19 @@ export const patients: Patient[] = [
         value: 4.33, // The patient age in years we render over the boxplot charts
         populationData: [
             {
-                label       : 'IBD Subtype',
+                label       : <>Behavior (<b className="text-success">Histology + Grade</b>)</>,
                 responder   : '26%',
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/70">74%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/84">41%</a>
             },
             {
-                label       : 'CD Location',
+                label       : <>Tumor Location (<b className="text-success">Tumor</b>)</>,
                 responder   : "28%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/63">72%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/90">56%</a>
             },
             {
-                label       : 'Behavior',
+                label       : 'Severity',
                 responder   : "21%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/42">79%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/91">69%</a>
@@ -77,7 +77,7 @@ export const patients: Patient[] = [
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/88">42%</a>
             },
             {
-                label       : <>Rare genetic predicted effect in <b>PLCG2</b></>,
+                label       : <>Genetic effect</>,
                 responder   : "29%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/58">71%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/89">7%</a>
@@ -121,7 +121,7 @@ export const patients: Patient[] = [
         value: 1, // The patient age in years we render over the boxplot charts
         populationData: [
             {
-                label       : <>IBD Subtype is <b className="text-success">Crohn&apos;s Disease (CD)</b></>,
+                label       : <>Behavior (<b className="text-success">Histology + Grade</b>)</>,
                 responder   : '22%',
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/70">78%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/84">35%</a>
