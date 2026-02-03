@@ -23,7 +23,7 @@ export const patients: Patient[] = [
         population: {
             screenshot: (
                 <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/94">
-                    <img className="chart-screenshot" src="/uc_survival_per_drug_class.png" />
+                    <img className="chart-screenshot" src={`${import.meta.env.VITE_BASE_URL}/uc_survival_per_drug_class.png`} />
                 </a>
             ),
             tableRows: [
@@ -104,7 +104,7 @@ export const patients: Patient[] = [
         // ---------------------------------------------------------------------
         population: {
             screenshot: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/95">
-                    <img className="chart-screenshot" src="/cd_survival_per_drug_class.png" />
+                    <img className="chart-screenshot" src={`${import.meta.env.VITE_BASE_URL}/cd_survival_per_drug_class.png`} />
             </a>,
             tableRows: [
                 { drugClass: "Aminosalicylate" , patients: 114, boxplot: [ 0.35, 1.75, 3.21, 5.43,  9.61 ] },
