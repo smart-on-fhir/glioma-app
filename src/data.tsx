@@ -10,15 +10,17 @@ export const patients: Patient[] = [
         gender: "Female",
         dob: "2020-03-15",
         mrn: "12345678",
-        description: `This 4-year-old Caucasian girl was diagnosed with ulcerative distal colitis,
-        affecting the colon up to the splenic flexure. She presents with bloody, mucousy diarrhea
-        and elevated inflammatory markers, but maintains normal weight and growth. Prior treatments
-        with sulfasalazine, budesonide, and dietary interventions, including enteral nutrition,
-        have not improved symptoms. She has a history of C. difficile infection (treated with
-        vancomycin) and a severe nut allergy, complicating dietary management. She exhibits no
-        systemic symptoms. Given her lack of response to current therapies, initiation of
-        immunomodulatory treatment is being considered, pending confirmation of up-to-date
-        immunization status.`,
+        description: `This patient is a White, non-Hispanic male born in 2012,
+        enrolled in CBTN in 2014, and diagnosed with a low-grade glioma at
+        approximately 18 months of age. Pathology was consistent with pilomyxoid
+        astrocytoma/low-grade glioma, harboring a KIAA1549-BRAF fusion. The tumor
+        involved the suprasellar/hypothalamic–pituitary region with ventricular
+        extension and no evidence of metastatic disease. The clinical course
+        included three documented progressions. Surgical management consisted of
+        one partial resection followed by a later gross total resection. Systemic
+        therapy began with carboplatin/vincristine and later included vinblastine
+        and trametinib, including enrollment on a clinical trial. Comprehensive
+        tumor and germline molecular profiling was performed.`,
 
         // Medications table and chart screenshot
         // ---------------------------------------------------------------------
@@ -94,13 +96,17 @@ export const patients: Patient[] = [
         dob: "2022-01-05",
         mrn: "23456789",
         description: `
-        This young male was diagnosed with severe Crohn's disease at 12 months of age, with ileocolonic involvement and
-        a stricturing phenotype. He initially responded to infliximab, had moderate response to adalimumab, and is now
-        on ustekinumab due to ongoing disease activity. Despite treatment, recent endoscopy and imaging show persistent
-        inflammation in the ileum and ascending colon. He has significant growth failure, now below the 3rd percentile
-        for height and weight. Laboratory tests reveal elevated CRP and ESR, indicating active inflammation, although
-        clinical symptoms are minimal. Management is focused on controlling inflammation and improving growth through
-        ongoing therapeutic adjustment and monitoring.`,
+        This patient is a Hispanic or Latino, Black or African American female
+        born in 2012, enrolled in CBTN in 2014, and diagnosed with a low-grade
+        glioma (pilocytic astrocytoma) at approximately 2.2 years of age. The
+        tumor arose in the suprasellar/hypothalamic–pituitary region with
+        leptomeningeal and CSF dissemination. She has experienced eight
+        documented progressions without histologic transformation. Management
+        has included two partial resections and multiple lines of systemic
+        therapy, beginning with carboplatin/vincristine and followed by several
+        chemotherapy and targeted regimens, including bevacizumab, trametinib,
+        temozolomide, and combination therapies. Extensive tumor and germline
+        molecular profiling has been performed.`,
         
         // Medications table and chart screenshot
         // ---------------------------------------------------------------------
@@ -109,12 +115,12 @@ export const patients: Patient[] = [
                     <img className="chart-screenshot" src={`${base}/cd_survival_per_drug_class.png`} />
             </a>,
             tableRows: [
-                { drugClass: "Aminosalicylate" , patients: 114, boxplot: [ 0.35, 1.75, 3.21, 5.43,  9.61 ] },
-                { drugClass: "Anti-integrin"   , patients: 26 , boxplot: [ 0.41, 0.71, 1.34, 1.85,  5.51 ] },
-                { drugClass: "Anti-interleukin", patients: 41 , boxplot: [ 0.35, 1.09, 1.47, 3   ,  7.24 ] },
-                { drugClass: "Anti-TNF"        , patients: 212, boxplot: [ 0.16, 1.25, 2.73, 4.76,  8.71 ] },
-                { drugClass: "Corticosteroid"  , patients: 219, boxplot: [ 0.18, 1.41, 3.11, 6.07, 10.48 ] },
-                { drugClass: "Immunomodulator" , patients: 164, boxplot: [ 0.33, 1.66, 3.44, 6.36,  9.61 ] },
+                { drugClass: "CV chemotherapy" , patients: 114, boxplot: [ 0.35, 1.75, 3.21, 5.43,  9.61 ] },
+                { drugClass: "MEK inhibitors"   , patients: 26 , boxplot: [ 0.41, 0.71, 1.34, 1.85,  5.51 ] },
+                { drugClass: "BRAF inhibitors", patients: 41 , boxplot: [ 0.35, 1.09, 1.47, 3   ,  7.24 ] },
+                { drugClass: "Platinum therapies"        , patients: 212, boxplot: [ 0.16, 1.25, 2.73, 4.76,  8.71 ] },
+                { drugClass: "Alkylating agents"  , patients: 219, boxplot: [ 0.18, 1.41, 3.11, 6.07, 10.48 ] },
+                { drugClass: "Antimetabolites" , patients: 164, boxplot: [ 0.33, 1.66, 3.44, 6.36,  9.61 ] },
             ]
         },
 
@@ -129,19 +135,19 @@ export const patients: Patient[] = [
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/84">35%</a>
             },
             {
-                label       : <>CD Location is <b>L3 (Ileocolonic)</b></>,
+                label       : <>Tumor Location (<b className="text-success">Tumor</b>)</>,
                 responder   : "16%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/62">84%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/85">37%</a>
             },
             {
-                label       : <>CD Behavior: <b>B2: stricturing</b></>,
+                label       : 'Severity',
                 responder   : "21%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/74">79%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/86">58%</a>
             },
             {
-                label       : <>Age at Dx of <b>12 months</b></>,
+                label       : "Age at Dx",
                 responder   : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" className="text-decoration-none"><BoxPlot data={[1, 3, 8   , 11, 16]} marker={1} /></a>,
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/93" className="text-decoration-none"><BoxPlot data={[1, 5, 12  , 26, 34]} marker={1} /></a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/92" className="text-decoration-none"><BoxPlot data={[1, 2, 10.5, 20, 32]} marker={1} /></a>
@@ -159,7 +165,7 @@ export const patients: Patient[] = [
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/88">30%</a>,
             },
             {
-                label       : <>Rare genetic predicted effect in <b>STIM1</b></>,
+                label       : <>Genetic effect</>,
                 responder   : "25%",
                 nonResponder: <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/58">75%</a>,
                 surgery     : <a href="https://smart-cumulus-fabric-2bea3378447d.herokuapp.com/views/89">47%</a>,
