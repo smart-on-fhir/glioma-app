@@ -8,7 +8,7 @@ import SiteFooter                       from './SiteFooter';
 
 export default function App() {
     return (
-        <BrowserRouter basename={ import.meta.env.VITE_REPO_BASE || '/' }>
+        <BrowserRouter basename={ import.meta.env.VITE_BASE_URL || '/' }>
             <div className='container'>
                 <SiteHeader />
                 <hr />

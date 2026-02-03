@@ -20,7 +20,7 @@ jobs:
 
       - name: Build
         env:
-          REPO_BASE: /glioma-app/
+          VITE_BASE_URL: /glioma-app/
         run: npm run build
 
       - name: Ensure 404 for client-side routing
