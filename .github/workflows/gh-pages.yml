@@ -21,7 +21,7 @@ jobs:
 
       - name: Build
         env:
-          REPO_BASE: /${{ github.event.repository.name }}
+          VITE_BASE_URL: /${{ github.event.repository.name }}/
         run: npm run build
 
       - name: Ensure 404 for client-side routing
