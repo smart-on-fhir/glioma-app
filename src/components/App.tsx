@@ -4,6 +4,7 @@ import PatientList                      from './PatientList';
 import SiteHeader                       from './SiteHeader';
 import PatientView                      from './PatientView';
 import SiteFooter                       from './SiteFooter';
+import SankeyChart                      from './SankeyChart';
 
 
 export default function App() {
@@ -13,8 +14,9 @@ export default function App() {
                 <SiteHeader />
                 <hr />
                 <Routes>
-                    <Route path="/"    element={<PatientList />} />
-                    <Route path="/:id" element={<PatientView />} />
+                    <Route path="/"      element={<PatientList />} />
+                    <Route path="/chart" element={<SankeyChart />} />
+                    <Route path="/:id"   element={<PatientView />} />
                 </Routes>
                 <SiteFooter />
             </div>
