@@ -137,13 +137,13 @@ export default function SankeyChart() {
         },
         colors: [
             '#80e4d3',
-            '#93ce87',
-            '#eaa3b0',
+            '#bce7b3',
+            '#eec0c9',
             '#e1b5ea',
-            '#eedb8e',
-            '#78b778',
-            '#78afe5',
-            '#CCCCCC',
+            '#f1e4af',
+            '#acdfac',
+            '#aed0f3',
+            '#dedede',
         ],
         title: {
             text: ''
@@ -167,7 +167,7 @@ export default function SankeyChart() {
         plotOptions: {
             sankey: {
                 linkOpacity: 0.5,
-                nodeWidth: 190,
+                nodeWidth: 210,
                 nodePadding: 8,
                 curveFactor: 0.2,
                 opacity: 1, 
@@ -196,7 +196,7 @@ export default function SankeyChart() {
                     verticalAlign: 'middle',
 
                     style: {
-                        textOutline: '1px #FFFC',
+                        textOutline: 'none',//'1px #FFFC',
                         fontWeight: 'bold',
                         fontSize: '12px',
                         fontFamily: 'sans-serif',
@@ -268,14 +268,14 @@ export default function SankeyChart() {
     return (
         <div>
             <div className='row'>
-                <div className='col col-2 text-center'>
-                    <h5 className='mb-0'>Modality</h5>
+                <div className='col text-start'>
+                    <h5 className='mb-0'>Treatment Modality</h5>
                 </div>
                 <div className='col text-center'>
-                    <h5 className='mb-0'>Class</h5>
+                    <h5 className='mb-0'>Treatment Class</h5>
                 </div>
-                <div className='col col-2 text-center'>
-                    <h5 className='mb-0'>Progression</h5>
+                <div className='col text-end'>
+                    <h5 className='mb-0'>Treatment Progression</h5>
                 </div>
             </div>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
