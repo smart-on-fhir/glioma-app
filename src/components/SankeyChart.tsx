@@ -1,4 +1,4 @@
-import Highcharts, { color, format, height, width }             from 'highcharts';
+import Highcharts             from 'highcharts';
 import HighchartsReact        from 'highcharts-react-official';
 import 'highcharts/modules/sankey';
 import 'highcharts/modules/non-cartesian-zoom';
@@ -12,26 +12,26 @@ import { parseCsvToObjects } from '../utils';
 
 const parsed = parseCsvToObjects(csvText);
 
-console.log(parsed);
+// console.log(parsed);
 
-function queryCube(where: Record<string, string | null>): Record<string, string|null>[] {
-    return parsed.filter((row) => {
-        for (const key in row) {
+// function queryCube(where: Record<string, string | null>): Record<string, string|null>[] {
+//     return parsed.filter((row) => {
+//         for (const key in row) {
 
-            // Look for explicit matches for keys in `where`
-            if (key in where) {
-                if (where[key] !== row[key]) return false;
-                continue;
-            }
+//             // Look for explicit matches for keys in `where`
+//             if (key in where) {
+//                 if (where[key] !== row[key]) return false;
+//                 continue;
+//             }
 
-            // Any keys not in `where` must be null in the row to match
-            if (row[key] !== null) {
-                return false
-            }
-        }
-    });
+//             // Any keys not in `where` must be null in the row to match
+//             if (row[key] !== null) {
+//                 return false
+//             }
+//         }
+//     });
 
-}
+// }
 
 const patientTxClass = [
     'ALKYLATING',
