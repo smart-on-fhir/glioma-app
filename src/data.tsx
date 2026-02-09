@@ -9,7 +9,7 @@ export const patients: Patient[] = [
         name: "Teresa Anderson",
         gender: "Female",
         dob: "2020-03-15",
-        mrn: "12345678",
+        mrn: "C114759",
         description: `This patient is a White, non-Hispanic male born in 2012,
         enrolled in CBTN in 2014, and diagnosed with a low-grade glioma at
         approximately 18 months of age. Pathology was consistent with pilomyxoid
@@ -113,7 +113,7 @@ export const patients: Patient[] = [
         name: "Malik Johnson",
         gender: "Male",
         dob: "2022-01-05",
-        mrn: "23456789",
+        mrn: "C77613",
         description: `
         This patient is a Hispanic or Latino, Black or African American female
         born in 2012, enrolled in CBTN in 2014, and diagnosed with a low-grade
@@ -127,9 +127,89 @@ export const patients: Patient[] = [
         temozolomide, and combination therapies. Extensive tumor and germline
         molecular profiling has been performed.`,
 
-        treatmentModality: [],
+        treatmentModality: [
+            'ALKYLATING',
+            'MEK',
+            'MTOR',
+            'CHEMOTHERAPY',
+            'MULTI_AGENT_CHEMOTHERAPY',
+            'RESECTION',
+            'TRAMETINIB',
+            'VINCA_ALKALOID',
+            'VINCRISTINE'
+        ],
 
-        characteristics: []
+        characteristics: [
+            {
+                label: 'Histology',
+                value: 'Pilomyxoid astrocytoma',
+                progressionEvidence: {
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
+                    functional: '%%',
+                    suspected: '%%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                }
+            },
+            {
+                label: 'Grade and behavior',
+                value: 'Grade II benign',
+                progressionEvidence: {
+                    radiographic: '%%',
+                    functional: '%%',
+                    suspected: '%%',
+                    none: '%%'
+                }
+            },
+            {
+                label: 'Age at diagnosis',
+                value: '2 years',
+                progressionEvidence: {
+                    radiographic: '%%',
+                    functional: '%%',
+                    suspected: '%%',
+                    none: '%%'
+                }
+            },
+            {
+                label: 'Tumor location',
+                value: 'Hypothalamic, diencephalic',
+                progressionEvidence: {
+                    radiographic: '%%',
+                    functional: '%%',
+                    suspected: '%%',
+                    none: '%%'
+                }
+            },
+            {
+                label: 'Tumor mass effect',
+                value: 'Hydrocephalus',
+                progressionEvidence: {
+                    radiographic: '%%',
+                    functional: '%%',
+                    suspected: '%%',
+                    none: '%%'
+                }
+            },
+            {
+                label: 'Tumor surgery extent',
+                value: 'Partial resection',
+                progressionEvidence: {
+                    radiographic: '%%',
+                    functional: '%%',
+                    suspected: '%%',
+                    none: '%%'
+                }
+            },
+            {
+                label: 'Molecular driver',
+                value: 'None',
+                progressionEvidence: {
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
+                    functional: '%%',
+                    suspected: '%%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                }
+            }
+        ]
     }
 ];
-    
