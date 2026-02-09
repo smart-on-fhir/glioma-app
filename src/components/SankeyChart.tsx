@@ -252,7 +252,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     if (row.tx_class && !seenClass.has(row.tx_class)) {
                         const selected = patient.treatmentClass.includes(row.tx_class);
                         seenClass.add(row.tx_class);
-                        acc.push({ id: row.tx_class, color: '#a7d3ff' });
+                        acc.push({ id: row.tx_class, color: selected ? '#8ac4ff' : '#c8e3ff' });
                     }
 
                     if (row.progression && !seenProgression.has(row.progression)) {
