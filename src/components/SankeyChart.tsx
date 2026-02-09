@@ -45,6 +45,8 @@ const patientTxClass = [
     'VINCRISTINE'
 ];
 
+const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
+
 
 export default function SankeyChart() {
 
@@ -73,11 +75,23 @@ export default function SankeyChart() {
         ) {
             const selected = patientTxClass.includes(row.tx_class);
             acc.push({
-                from: row.tx_modality,
-                to: row.tx_class,
+                from  : row.tx_modality,
+                to    : row.tx_class,
                 weight: parseFloat(row.cnt),
-                selected,
-                opacity: selected ? 1 : 0.3,
+                // selected,
+                // opacity: selected ? 1 : 0.5,
+                linkOpacity: selected ? 1 : 0.3,
+                // color: selected ? SELECTION_COLOR + 'CC' : undefined,
+                // linkColorMode: selected ? 'gradient' : 'from',
+                // linkColor: selected ? SELECTION_COLOR : undefined,
+                custom: {
+                    selected
+                },
+                // dataLabels: {
+                //     borderWidth: selected ? 1 : 0,
+                //     borderColor: selected ? SELECTION_COLOR : '#0000',
+                //     backgroundColor: selected ? SELECTION_COLOR : '#0000',
+                // }
             });
         }
 
@@ -96,15 +110,27 @@ export default function SankeyChart() {
                 from: row.tx_class,
                 to: row.progression,
                 weight: parseFloat(row.cnt),
-                selected,
-                opacity: selected ? 1 : 0.3,
+                // selected,
+                // opacity: selected ? 1 : 0.3,
+                linkOpacity: selected ? 1 : 0.3,
+                // color: selected ? SELECTION_COLOR + 'CC' : undefined,
+                // linkColorMode: selected ? 'gradient' : 'from',
+                // linkColor: selected ? SELECTION_COLOR : undefined,
+                // dataLabels: {
+                //     backgroundColor: selected ? SELECTION_COLOR : '#0000',
+                //     borderColor: selected ? SELECTION_COLOR : '#0000',
+                //     borderWidth: selected ? 1 : 0,
+                // }
+                custom: {
+                    selected
+                },
             });
         }
 
         return acc;
     }, []);
 
-    console.log(data);
+    // console.log(data);
 
     // cnt, progression, regrowth_pattern, symptom_burden, tx_class, tx_modality, tx_specific, visual_status
     // queryCube({
@@ -122,14 +148,14 @@ export default function SankeyChart() {
 
     const chartOptions = {
         chart: {
-            zooming: {
-                type: 'xy'
-            },
-            panning: {
-                enabled: true,
-                type: 'xy'
-            },
-            panKey: 'shift',
+            // zooming: {
+            //     type: 'xy'
+            // },
+            // panning: {
+            //     enabled: true,
+            //     type: 'xy'
+            // },
+            // panKey: 'shift',
             height: 650,
         },
         exporting: {
@@ -160,40 +186,53 @@ export default function SankeyChart() {
             }
         },
         tooltip: {
+            borderColor: SELECTION_COLOR,
+            borderWidth: 1,
             headerFormat: null,
-            pointFormat: '{point.fromNode.name} \u2192 {point.toNode.name}: {point.weight:.2f} quads',
-            nodeFormat: '{point.name}: {point.sum:.2f} quads'
+            pointFormat: '{point.fromNode.name} <b>\u2192</b> {point.toNode.name}: <b>{point.weight}</b>',
+            nodeFormat: '{point.name}: <b>{point.sum}</b>',
+            shadow: {
+                color: '#0006',
+                size: 8
+            }
         },
         plotOptions: {
             sankey: {
-                linkOpacity: 0.5,
-                nodeWidth: 210,
-                nodePadding: 8,
-                curveFactor: 0.2,
-                opacity: 1, 
+                // linkOpacity: 1,
+                minLinkWidth: 3,
+                linkColorMode: 'gradient',
+                linkColor: '#CCCCCC',
+
+                nodeWidth  : 220,
+                nodeAlignment: 'top',
+                nodeDistance: '100%',
+                nodePadding: 6,
+                // curveFactor: 0.2,
+                // opacity: 1, 
                 borderRadius: 0, 
-                borderWidth: 1,
-                borderColor: '#0001',
+                // borderWidth: 1,
+                borderColor: '#0003',
                 colorByPoint: true,
-                color: '#0363',
-                showCheckbox: true,
-                shadow: {
-                    color: '#0002',
-                },
-                // allowPointSelect: true,
-                clip: false,
+                color: SELECTION_COLOR + '60', // default color with transparency
+                // showCheckbox: true,
+                // // shadow: {
+                // //     color: '#000',
+                // // },
+                // // allowPointSelect: true,
+                // clip: false,
                 dataLabels: {
                     enabled: true,
-                    color: '#000',
-                    // format: '{point.name}',
+                    // color: '#000',
+                //     // format: '{point.name}',
                     // backgroundColor: '#FFFD',
-                    // borderRadius: 3,
-                    // padding: 1,
+                    // borderRadius: 6,
+                    // padding: 5,
                     // inside: true,
-                    align: 'center',
-                    // width: 100,
-                    overflow: 'allow',
-                    verticalAlign: 'middle',
+                    // align: 'center',
+                    // // width: 100,
+                    // overflow: 'allow',
+                    // verticalAlign: 'middle',
+                    overlap: true,
 
                     style: {
                         textOutline: 'none',//'1px #FFFC',
@@ -202,38 +241,75 @@ export default function SankeyChart() {
                         fontFamily: 'sans-serif',
                     }
                 },
-                states: {
+                // states: {
                     // select: {
                     //     color: '#F608',
                     //     // borderColor: '#000',
                     //     // borderWidth: 2,
                     //     opacity: 1,
                     // },
-                    hover: {
-                        color: '#F60C',
-                        // borderColor: '#000',
-                        // borderWidth: 2,
-                        // brightness: 0.1,
-                    },
-                    inactive: {
-                        opacity: 0.3,
-                        // borderWidth: 1,
-                        // borderColor: '#000',
-                        color: '#0003',
+                    // hover: {
+                    //     // color: SELECTION_COLOR + 'CC',
+                    //     // borderColor: '#0008',
+                    //     // borderWidth: 1,
+                    //     // brightness: 0.1,
+                    //     // color: '#FFF'
+                    //     // filter: 'drop-shadow(0 0 1px #000)'
+                    // },
+                    // inactive: {
+                    //     // opacity: 0.3,
+                    //     // borderWidth: 1,
+                    //     // borderColor: '#000',
+                    //     color: 'rgba(128, 128, 128, 0.3)',
 
-                    },
-                    normal: {
-                        opacity: 0.5,
-                    }
-                }
+                    // },
+                    // normal: {
+                    //     opacity: 0.5,
+                    //     color: 'rgba(128, 128, 128, 0.3)',
+                    // }
+                // }
             }
         },
         series: [{
             keys: ['from', 'to', 'weight'],
+            // dataSorting: {
+            //     enabled: true,
+            //     sortKey: 'to',
+            // },
 
 
-            // nodes: [
-            //     { id: 'Electricity & Heat', color: '#ffa500', offset: -110 },
+            nodes: (() => {
+                const acc: any[] = [];
+                const seenModality = new Set<string>();
+                const seenProgression = new Set<string>();
+                const seenClass = new Set<string>();
+                parsed.forEach((row) => {
+                    if (row.tx_modality && !seenModality.has(row.tx_modality)) {
+                        seenModality.add(row.tx_modality);
+                        acc.push({ id: row.tx_modality, color: '#fed6ab', offset: 60 });
+                    }
+                    if (row.tx_class && !seenClass.has(row.tx_class)) {
+                        seenClass.add(row.tx_class);
+                        acc.push({ id: row.tx_class, color: '#a7d3ff' });
+                    }
+
+                    if (row.progression && !seenProgression.has(row.progression)) {
+                        seenProgression.add(row.progression);
+                        acc.push({ id: row.progression, color: '#bceab3', offset: 40 });
+                    }
+
+                    // if (!seen.has(link.from)) {
+                    //     nodes.push({ id: link.from });
+                    //     seen.add(link.from);
+                    // }
+                    // if (!seen.has(link.to)) {
+                    //     nodes.push({ id: link.to });
+                    //     seen.add(link.to);
+                    // }
+                });
+                return acc;
+            })(),
+                // { id: 'SURGERY', color: '#ffa500' },
             //     { id: 'Net Import'     , color: '#000000' },
             //     { id: 'Residential'    , color: '#74ffe7', column: 2, offset: 50 },
             //     { id: 'Commercial'     , color: '#8cff74', column: 2, offset: 50 },
@@ -266,16 +342,16 @@ export default function SankeyChart() {
     }
 
     return (
-        <div>
-            <div className='row'>
+        <div className='mt-3'>
+            <div className='row mb-2'>
                 <div className='col text-start'>
-                    <h5 className='mb-0'>Treatment Modality</h5>
+                    <h5 className='mb-0 badge bg-success rounded-pill ms-3'>Treatment Modality</h5>
                 </div>
                 <div className='col text-center'>
-                    <h5 className='mb-0'>Treatment Class</h5>
+                    <h5 className='mb-0 badge bg-success rounded-pill'>Treatment Class</h5>
                 </div>
                 <div className='col text-end'>
-                    <h5 className='mb-0'>Treatment Progression</h5>
+                    <h5 className='mb-0 badge bg-success rounded-pill me-3'>Treatment Progression</h5>
                 </div>
             </div>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />

@@ -2,7 +2,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { patients }        from '../data'
 import PatientListItem     from "./PatientListItem";
-import BoxPlot             from './BoxPlot';
+import SankeyChart         from './SankeyChart';
 
 
 export default function PatientView() {
@@ -18,37 +18,103 @@ export default function PatientView() {
             <Link to="../"><i className="bi bi-arrow-left-circle me-2"></i>Back to list</Link>
             <PatientListItem patient={patient} />
 
-            <div className="table-responsive">
-                <table className="table table-hover w-100 mb-0">
+            <div className="table-responsive small">
+                <table className="table table-bordered table-hover w-100 mb-0">
                     <thead>
                         <tr>
-                            <td className="text-start text-success" style={{width: "auto"}}>
-                                <b>{patient.name} Features</b>
+                            <td colSpan={2}></td>
+                            <td colSpan={4}>
+                                <h5>Disease progression evidence.</h5>
+                                <small className="text-muted">
+                                Probability of progression given patient
+                                characteristic.<br />Equation: <code>P(progression | characteristic)</code>. 
+                                </small>
                             </td>
+                        </tr>
+                        <tr>
+                            <td className='fw-bold' colSpan={2}>Patient Characteristic</td>
+                            <td className='fw-bold'>Radiographic</td>
+                            <td className='fw-bold'>Functional</td>
+                            <td className='fw-bold'>Suspected</td>
+                            <td className='fw-bold'>None</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td className='text-start'>Histology</td>
+                            <td className='text-start'>Pilomyxoid astrocytoma</td>
+                            <td>%% dashboard link</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%% dashboard link</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Grade and behavior</td>
+                            <td className='text-start'>Grade II benign</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Age at diagnosis</td>
+                            <td className='text-start'>2  years</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Tumor location</td>
+                            <td className='text-start'>Hypothalamic, diencephalic</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Tumor mass effect</td>
+                            <td className='text-start'>Hydrocephalus</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Tumor surgery extent</td>
+                            <td className='text-start'>Gross total resection</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                        </tr>
+                        <tr>
+                            <td className='text-start'>Molecular driver</td>
+                            <td className='text-start'>7q34-KIAA1549-BRAF Fusion</td>
+                            <td>%% dashboard link</td>
+                            <td>%%</td>
+                            <td>%%</td>
+                            <td>%% dashboard link</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <SankeyChart />
+                {/* <table className="table table-hover w-100 mb-0">
+                    <thead>
+                        <tr>
+                            <td className="text-start text-success" style={{width: "auto"}}><b>{patient.name} Features</b></td>
                             <td style={{width: "20px"}} className="no-hover"></td>
                             <td style={{width: "250px"}}>
-                                <span className="text-success">
-                                    Glioma Surgery<br/>
-                                    <b>required</b>
-                                </span>
-                                <br/>
+                                <span className="text-success">Glioma Surgery<br/><b>required</b></span><br/>
                                 <small className="text-muted">(Bowel Resection)</small>
                             </td>
                             <td style={{width: "20px"}} className="no-hover"></td>
                             <td style={{width: "250px"}}>
-                                <span className="text-success">
-                                    Chance of treatment<br/>
-                                    <b>response</b>
-                                </span>
-                                <br/>
+                                <span className="text-success">Chance of treatment<br/><b>response</b></span><br/>
                                 <small className="text-muted">(Never Failed)</small>
                             </td>
                             <td style={{width: "250px"}}>
-                                <span className="text-success">
-                                    Chance of treatment<br/>
-                                    <b>non-response</b>
-                                </span>
-                                <br/>
+                                <span className="text-success">Chance of treatment<br/><b>non-response</b></span><br/>
                                 <small className="text-muted">(Ever Failed)</small>
                             </td>
                         </tr>
@@ -68,43 +134,7 @@ export default function PatientView() {
                             );
                         }) }
                     </tbody>
-                    <tbody>
-                        <tr className="no-hover no-border">
-                            <td colSpan={6} style={{height: "20px"}}></td>
-                        </tr>
-                        <tr className="no-hover no-border">
-                            <td colSpan={3} className="bg-pale-primary" style={{verticalAlign: "middle"}}>
-                                {patient.population.screenshot}
-                            </td>
-                            <td className="no-hover"></td>
-                            <td colSpan={2} className="bg-pale-success" style={{verticalAlign: "top"}}>
-                                <table className="table table-sm small w-100 table-hover mt-2">
-                                    <thead>
-                                        <tr>
-                                            <th className="text-start pb-2 text-success">Glioma Drug Class</th>
-                                            <th className="text-center pb-2 text-success" style={{width: "7em"}}>Glioma</th>
-                                            <th className="text-start pb-2 text-success text-nowrap" colSpan={2} style={{width: "160px"}}>Stable condition</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="population-table-body">
-                                        { patient.population.tableRows.map((row, index) => (
-                                            <tr key={index}>
-                                                <td className="text-start fw-semibold">{row.drugClass}</td>
-                                                <td className="text-center text-muted">{row.patients}</td>
-                                                <td className="text-start hc-container-small" style={{minWidth: 120}}>
-                                                    <BoxPlot data={row.boxplot} />
-                                                </td>
-                                                <td className="text-start text-muted px-2" style={{width:"4em"}}>
-                                                    <span className="badge bg-success d-block">{row.boxplot[2]}</span>
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                </table> */}
             </div>
         </div>
     );
