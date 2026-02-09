@@ -39,10 +39,10 @@ export const patients: Patient[] = [
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
                 progressionEvidence: {
-                    radiographic: <a href="#">% - dashboard link</a>,
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
                     functional: '%%',
                     suspected: '%%',
-                    none: <a href="#">% - dashboard link</a>
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
                 }
             },
             {
@@ -99,10 +99,10 @@ export const patients: Patient[] = [
                 label: 'Molecular driver',
                 value: '7q34-KIAA1549-BRAF Fusion',
                 progressionEvidence: {
-                    radiographic: <a href="#">% - dashboard link</a>,
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
                     functional: '%%',
                     suspected: '%%',
-                    none: <a href="#">% - dashboard link</a>
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
                 }
             }
         ]
