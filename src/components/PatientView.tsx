@@ -17,15 +17,15 @@ export default function PatientView() {
         <div>
             <Link to="../"><i className="bi bi-arrow-left-circle me-2"></i>Back to list</Link>
             <PatientListItem patient={patient} />
-
-            <div className="table-responsive small">
+            <SankeyChart patient={patient} />
+            <div className="table-responsive small mt-5">
                 <table className="table table-hover w-100 mb-0">
                     <thead>
                         <tr>
-                            <td colSpan={2} rowSpan={2} className='border'>
+                            <td colSpan={2} rowSpan={2} className=''>
                                 <h5 className='text-success'>Patient Characteristic</h5>
                             </td>
-                            <td colSpan={4} className='border'>
+                            <td colSpan={4} className=''>
                                 <h5 className='text-success'>Disease progression evidence.</h5>
                                 <small className="text-muted">
                                 Probability of progression given patient
@@ -35,10 +35,10 @@ export default function PatientView() {
                         </tr>
                         <tr>
                             {/* <td className='fw-bold text-success border-start' colSpan={2}>Patient Characteristic</td> */}
-                            <td className='fw-bold text-success border-start'>Radiographic</td>
-                            <td className='fw-bold text-success'>Functional</td>
-                            <td className='fw-bold text-success'>Suspected</td>
-                            <td className='fw-bold text-success border-end'>None</td>
+                            <td className='fw-bold text-muted border-start'>Radiographic</td>
+                            <td className='fw-bold text-muted'>Functional</td>
+                            <td className='fw-bold text-muted'>Suspected</td>
+                            <td className='fw-bold text-muted border-end'>None</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +54,6 @@ export default function PatientView() {
                         )) }
                     </tbody>
                 </table>
-                <SankeyChart patient={patient} />
             </div>
         </div>
     );

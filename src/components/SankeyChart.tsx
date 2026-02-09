@@ -92,15 +92,15 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         },
         accessibility: {
             point: {
-                valueDescriptionFormat: '{index}. {point.from} to {point.to}, {point.weight}.'
+                valueDescriptionFormat: '{index}. {point.from} to {point.to}, {point.weight} patients.'
             }
         },
         tooltip: {
             borderColor: SELECTION_COLOR,
             borderWidth: 1,
             headerFormat: null,
-            pointFormat: '{point.fromNode.name} <b>\u2192</b> {point.toNode.name}: <b>{point.weight}</b>',
-            nodeFormat: '{point.name}: <b>{point.sum}</b>',
+            pointFormat: '{point.fromNode.name} <b>\u2192</b> {point.toNode.name}: <b>{point.weight}</b> patients',
+            nodeFormat: '{point.name}: <b>{point.sum}</b> patients',
             shadow: {
                 color: '#0006',
                 size: 8
@@ -187,7 +187,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
 
     return (
         <div className='mt-5'>
-            <div className='row mb-2 gap-5'>
+            <div className='d-flex mb-2 gap-5'>
                 <div className='col text-start border-bottom border-3'>
                     <h5 className='text-success fw-semibold'>Treatment Modality</h5>
                 </div>
