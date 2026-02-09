@@ -4,24 +4,20 @@ declare type Patient = {
     dob: string // YYYY-MM-DD format
     gender: string;
     description: string;
+    
+    treatmentModality: string[];
 
-    populationData: PopulationDataRow[]
-
-    value: number;
-
-    population: {
-        screenshot: ReactNode,
-        tableRows: {
-           drugClass: string;
-           patients : number;
-           boxplot  : [number, number, number, number, number] 
-        }[]
-    }
+    characteristics: PatientCharacteristic[];
 };
 
-declare type PopulationDataRow = {
+interface PatientCharacteristic {
     label: ReactNode;
-    surgery: ReactNode;
-    responder: ReactNode;
-    nonResponder: ReactNode;
-};
+    value: ReactNode;
+    progressionEvidence: {
+        radiographic: ReactNode;
+        functional: ReactNode;
+        suspected: ReactNode;
+        none: ReactNode;
+    }
+}
+

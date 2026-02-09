@@ -12,57 +12,18 @@ import { parseCsvToObjects } from '../utils';
 
 const parsed = parseCsvToObjects(csvText);
 
-// console.log(parsed);
 
-// function queryCube(where: Record<string, string | null>): Record<string, string|null>[] {
-//     return parsed.filter((row) => {
-//         for (const key in row) {
-
-//             // Look for explicit matches for keys in `where`
-//             if (key in where) {
-//                 if (where[key] !== row[key]) return false;
-//                 continue;
-//             }
-
-//             // Any keys not in `where` must be null in the row to match
-//             if (row[key] !== null) {
-//                 return false
-//             }
-//         }
-//     });
-
-// }
-
-const patientTxClass = [
-    'ALKYLATING',
-    'BRAF',
-    'CHEMOTHERAPY',
-    'MEK',
-    'MULTI_AGENT_CHEMOTHERAPY',
-    'RESECTION',
-    'TRAMETINIB',
-    'VINCA_ALKALOID',
-    'VINCRISTINE'
-];
 
 const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
 
 
-export default function SankeyChart() {
+export default function SankeyChart({ patient }: { patient: Patient }) {
 
     // ['from', 'to', 'weight']
     const data: any[] = parsed.reduce((acc: any[], row) => {
         // cnt,progression,regrowth_pattern,symptom_burden,tx_class,tx_modality,tx_specific,visual_status
 
-        // cnt: "18"
-        // progression: "BOTH"
-        // regrowth_pattern: "NOT_MENTIONED"
-        // symptom_burden: "VISUAL_SYMPTOMS"
-        // tx_class: null
-        // tx_modality: null
-        // tx_specific: "cumulus__none"
-        // visual_status: null
-
+        // tx_modality -> tx_class (count)
         if (
             row.tx_modality &&
             row.tx_class &&
@@ -73,7 +34,7 @@ export default function SankeyChart() {
             row.tx_specific === null &&
             row.visual_status === null
         ) {
-            const selected = patientTxClass.includes(row.tx_class);
+            const selected = patient.treatmentModality.includes(row.tx_class);
             acc.push({
                 from  : row.tx_modality,
                 to    : row.tx_class,
@@ -105,7 +66,7 @@ export default function SankeyChart() {
             row.tx_specific === null &&
             row.visual_status === null
         ) {
-            const selected = patientTxClass.includes(row.tx_class);
+            const selected = patient.treatmentModality.includes(row.tx_class);
             acc.push({
                 from: row.tx_class,
                 to: row.progression,
@@ -309,25 +270,6 @@ export default function SankeyChart() {
                 });
                 return acc;
             })(),
-                // { id: 'SURGERY', color: '#ffa500' },
-            //     { id: 'Net Import'     , color: '#000000' },
-            //     { id: 'Residential'    , color: '#74ffe7', column: 2, offset: 50 },
-            //     { id: 'Commercial'     , color: '#8cff74', column: 2, offset: 50 },
-            //     { id: 'Industrial'     , color: '#ff8da1', column: 2, offset: 50 },
-            //     { id: 'Transportation' , color: '#f4c0ff', column: 2, offset: 50 },
-            //     { id: 'Rejected Energy', color: '#e6e6e6', column: 3, offset: -30 },
-            //     { id: 'Energy Services', color: '#F9E79F', column: 3 },
-            //     { id: 'Net Import'     , color: '#000000' },
-            //     { id: 'Solar'          , color: '#009c00' },
-            //     { id: 'Nuclear'        , color: '#1a8dff' },
-            //     { id: 'Hydro'          , color: '#009c00' },
-            //     { id: 'Wind'           , color: '#009c00' },
-            //     { id: 'Geothermal'     , color: '#009c00' },
-            //     { id: 'Natural Gas'    , color: '#1a8dff' },
-            //     { id: 'Biomass'        , color: '#009c00' },
-            //     { id: 'Coal'           , color: '#989898' },
-            //     { id: 'Petroleum'      , color: '#989898', offset: -1 }
-            // ],
 
             data,
             type: 'sankey',
@@ -342,16 +284,16 @@ export default function SankeyChart() {
     }
 
     return (
-        <div className='mt-3'>
-            <div className='row mb-2'>
-                <div className='col text-start'>
-                    <h5 className='mb-0 badge bg-success rounded-pill ms-3'>Treatment Modality</h5>
+        <div className='mt-5'>
+            <div className='row mb-2 gap-5'>
+                <div className='col text-start border-bottom border-3'>
+                    <h5 className='text-success ms-2 px-2 fw-semibold'>Treatment Modality</h5>
                 </div>
-                <div className='col text-center'>
-                    <h5 className='mb-0 badge bg-success rounded-pill'>Treatment Class</h5>
+                <div className='col text-center border-bottom border-3'>
+                    <h5 className='text-success px-2 fw-semibold'>Treatment Class</h5>
                 </div>
-                <div className='col text-end'>
-                    <h5 className='mb-0 badge bg-success rounded-pill me-3'>Treatment Progression</h5>
+                <div className='col text-end border-bottom border-3'>
+                    <h5 className='text-success px-2 fw-semibold'>Treatment Progression</h5>
                 </div>
             </div>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
