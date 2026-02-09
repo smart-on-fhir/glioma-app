@@ -1,14 +1,9 @@
-import Highcharts, { pad }             from 'highcharts';
-import HighchartsReact        from 'highcharts-react-official';
-import 'highcharts/modules/sankey';
-// import 'highcharts/modules/non-cartesian-zoom';
-// import 'highcharts/modules/mouse-wheel-zoom';
-// import 'highcharts/modules/exporting';
-// import 'highcharts/modules/export-data';
-// import 'highcharts/modules/accessibility';
-// import 'highcharts/themes/adaptive';
-import csvText from './gliomacubepatientcasedeftxresponse30days.csv?raw';
+import Highcharts            from 'highcharts';
+import HighchartsReact       from 'highcharts-react-official';
 import { parseCsvToObjects } from '../utils';
+import csvText               from './gliomacubepatientcasedeftxresponse30days.csv?raw';
+import 'highcharts/modules/sankey';
+import 'highcharts/modules/accessibility';
 
 const parsed = parseCsvToObjects(csvText);
 
@@ -37,8 +32,8 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         ) {
             const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
-                from       : row.tx_modality,
-                to         : row.tx_class,
+                from       : 'modality:' + row.tx_modality,
+                to         : 'class:' + row.tx_class,
                 weight     : parseFloat(row.cnt),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected }
@@ -54,13 +49,13 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             row.regrowth_pattern === null &&
             row.symptom_burden === null &&
             row.tx_specific === null &&
-            row.visual_status === null && 
-            row.progression !== 'NOT_MENTIONED' // TEMPORARY: Andy will remove this from the cube later
+            row.visual_status === null
         ) {
             const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
-                from       : row.tx_class,
-                to         : row.progression,
+                from       : 'class:' + row.tx_class,
+                to         : 'progression:' + row.progression,
+                id         : row.tx_class + '_to_' + row.progression,
                 weight     : parseFloat(row.cnt),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected },
@@ -168,17 +163,17 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                 parsed.forEach((row) => {
                     if (row.tx_modality && !seenModality.has(row.tx_modality)) {
                         seenModality.add(row.tx_modality);
-                        acc.push({ id: row.tx_modality, color: '#fed6ab' });
+                        acc.push({ id: 'modality:' + row.tx_modality, color: '#fed6ab', name: row.tx_modality.replaceAll('_', ' ') });
                     }
                     if (row.tx_class && !seenClass.has(row.tx_class)) {
                         const selected = patient.treatmentClass.includes(row.tx_class);
                         seenClass.add(row.tx_class);
-                        acc.push({ id: row.tx_class, color: selected ? '#8ac4ff' : '#c8e3ff' });
+                        acc.push({ id: 'class:' + row.tx_class, color: selected ? '#8ac4ff' : '#c8e3ff', name: row.tx_class.replaceAll('_', ' ') });
                     }
 
                     if (row.progression && !seenProgression.has(row.progression)) {
                         seenProgression.add(row.progression);
-                        acc.push({ id: row.progression, color: '#bceab3' });
+                        acc.push({ id: 'progression:' + row.progression, color: '#bceab3', name: row.progression.replaceAll('_', ' ') });
                     }
                 });
                 return acc;
