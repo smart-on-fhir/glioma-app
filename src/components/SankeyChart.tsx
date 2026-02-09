@@ -1,11 +1,11 @@
 import Highcharts             from 'highcharts';
 import HighchartsReact        from 'highcharts-react-official';
 import 'highcharts/modules/sankey';
-import 'highcharts/modules/non-cartesian-zoom';
-import 'highcharts/modules/mouse-wheel-zoom';
-import 'highcharts/modules/exporting';
-import 'highcharts/modules/export-data';
-import 'highcharts/modules/accessibility';
+// import 'highcharts/modules/non-cartesian-zoom';
+// import 'highcharts/modules/mouse-wheel-zoom';
+// import 'highcharts/modules/exporting';
+// import 'highcharts/modules/export-data';
+// import 'highcharts/modules/accessibility';
 // import 'highcharts/themes/adaptive';
 import csvText from './gliomacubepatientcasedeftxresponse30days.csv?raw';
 import { parseCsvToObjects } from '../utils';
@@ -19,9 +19,10 @@ const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
 
 export default function SankeyChart({ patient }: { patient: Patient }) {
 
-    // ['from', 'to', 'weight']
+    // Columns:
+    //   cnt, progression, regrowth_pattern, symptom_burden, tx_class,
+    //   tx_modality, tx_specific, visual_status
     const data: any[] = parsed.reduce((acc: any[], row) => {
-        // cnt,progression,regrowth_pattern,symptom_burden,tx_class,tx_modality,tx_specific,visual_status
 
         // tx_modality -> tx_class (count)
         if (
@@ -36,26 +37,15 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         ) {
             const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
-                from  : row.tx_modality,
-                to    : row.tx_class,
-                weight: parseFloat(row.cnt),
-                // selected,
-                // opacity: selected ? 1 : 0.5,
+                from       : row.tx_modality,
+                to         : row.tx_class,
+                weight     : parseFloat(row.cnt),
                 linkOpacity: selected ? 1 : 0.3,
-                // color: selected ? SELECTION_COLOR + 'CC' : undefined,
-                // linkColorMode: selected ? 'gradient' : 'from',
-                // linkColor: selected ? SELECTION_COLOR : undefined,
-                custom: {
-                    selected
-                },
-                // dataLabels: {
-                //     borderWidth: selected ? 1 : 0,
-                //     borderColor: selected ? SELECTION_COLOR : '#0000',
-                //     backgroundColor: selected ? SELECTION_COLOR : '#0000',
-                // }
+                custom     : { selected }
             });
         }
 
+        // tx_class -> progression (count)
         else if (
             row.progression &&
             row.tx_class &&
@@ -64,48 +54,21 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             row.regrowth_pattern === null &&
             row.symptom_burden === null &&
             row.tx_specific === null &&
-            row.visual_status === null
+            row.visual_status === null && 
+            row.progression !== 'NOT_MENTIONED' // TEMPORARY: Andy will remove this from the cube later
         ) {
             const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
-                from: row.tx_class,
-                to: row.progression,
-                weight: parseFloat(row.cnt),
-                // selected,
-                // opacity: selected ? 1 : 0.3,
+                from       : row.tx_class,
+                to         : row.progression,
+                weight     : parseFloat(row.cnt),
                 linkOpacity: selected ? 1 : 0.3,
-                // color: selected ? SELECTION_COLOR + 'CC' : undefined,
-                // linkColorMode: selected ? 'gradient' : 'from',
-                // linkColor: selected ? SELECTION_COLOR : undefined,
-                // dataLabels: {
-                //     backgroundColor: selected ? SELECTION_COLOR : '#0000',
-                //     borderColor: selected ? SELECTION_COLOR : '#0000',
-                //     borderWidth: selected ? 1 : 0,
-                // }
-                custom: {
-                    selected
-                },
+                custom     : { selected },
             });
         }
 
         return acc;
     }, []);
-
-    // console.log(data);
-
-    // cnt, progression, regrowth_pattern, symptom_burden, tx_class, tx_modality, tx_specific, visual_status
-    // queryCube({
-    //     tx_modality: 'CHEMOTHERAPY*',
-    //     tx_class: 'CHEMOTHERAPY',
-    //     // cnt,
-    //     // progression,
-    //     // regrowth_pattern,
-    //     // symptom_burden,
-    //     // tx_class,
-    //     // tx_modality,
-    //     // tx_specific,
-    //     // visual_status
-    // })
 
     const chartOptions = {
         chart: {
@@ -122,16 +85,6 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         exporting: {
             enabled: false
         },
-        colors: [
-            '#80e4d3',
-            '#bce7b3',
-            '#eec0c9',
-            '#e1b5ea',
-            '#f1e4af',
-            '#acdfac',
-            '#aed0f3',
-            '#dedede',
-        ],
         title: {
             text: ''
         },
@@ -196,49 +149,16 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     overlap: true,
 
                     style: {
-                        textOutline: 'none',//'1px #FFFC',
+                        textOutline: '1px #FFF8',
                         fontWeight: 'bold',
                         fontSize: '12px',
                         fontFamily: 'sans-serif',
                     }
-                },
-                // states: {
-                    // select: {
-                    //     color: '#F608',
-                    //     // borderColor: '#000',
-                    //     // borderWidth: 2,
-                    //     opacity: 1,
-                    // },
-                    // hover: {
-                    //     // color: SELECTION_COLOR + 'CC',
-                    //     // borderColor: '#0008',
-                    //     // borderWidth: 1,
-                    //     // brightness: 0.1,
-                    //     // color: '#FFF'
-                    //     // filter: 'drop-shadow(0 0 1px #000)'
-                    // },
-                    // inactive: {
-                    //     // opacity: 0.3,
-                    //     // borderWidth: 1,
-                    //     // borderColor: '#000',
-                    //     color: 'rgba(128, 128, 128, 0.3)',
-
-                    // },
-                    // normal: {
-                    //     opacity: 0.5,
-                    //     color: 'rgba(128, 128, 128, 0.3)',
-                    // }
-                // }
+                }
             }
         },
         series: [{
             keys: ['from', 'to', 'weight'],
-            // dataSorting: {
-            //     enabled: true,
-            //     sortKey: 'to',
-            // },
-
-
             nodes: (() => {
                 const acc: any[] = [];
                 const seenModality = new Set<string>();
@@ -259,27 +179,12 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         seenProgression.add(row.progression);
                         acc.push({ id: row.progression, color: '#bceab3', offset: 40 });
                     }
-
-                    // if (!seen.has(link.from)) {
-                    //     nodes.push({ id: link.from });
-                    //     seen.add(link.from);
-                    // }
-                    // if (!seen.has(link.to)) {
-                    //     nodes.push({ id: link.to });
-                    //     seen.add(link.to);
-                    // }
                 });
                 return acc;
             })(),
 
             data,
             type: 'sankey',
-            name: 'Sankey demo series',
-            // dataLabels: {
-            //     style: {
-            //         // color: 'var(--highcharts-neutral-color-100, #000)'
-            //     }
-            // }
         }]
 
     }

@@ -19,11 +19,13 @@ export default function PatientView() {
             <PatientListItem patient={patient} />
 
             <div className="table-responsive small">
-                <table className="table table-bordered table-hover w-100 mb-0">
+                <table className="table table-hover w-100 mb-0">
                     <thead>
                         <tr>
-                            <td colSpan={2}></td>
-                            <td colSpan={4}>
+                            <td colSpan={2} rowSpan={2} className='border'>
+                                <h5 className='text-success'>Patient Characteristic</h5>
+                            </td>
+                            <td colSpan={4} className='border'>
                                 <h5 className='text-success'>Disease progression evidence.</h5>
                                 <small className="text-muted">
                                 Probability of progression given patient
@@ -32,22 +34,22 @@ export default function PatientView() {
                             </td>
                         </tr>
                         <tr>
-                            <td className='fw-bold text-success' colSpan={2}>Patient Characteristic</td>
-                            <td className='fw-bold text-success'>Radiographic</td>
+                            {/* <td className='fw-bold text-success border-start' colSpan={2}>Patient Characteristic</td> */}
+                            <td className='fw-bold text-success border-start'>Radiographic</td>
                             <td className='fw-bold text-success'>Functional</td>
                             <td className='fw-bold text-success'>Suspected</td>
-                            <td className='fw-bold text-success'>None</td>
+                            <td className='fw-bold text-success border-end'>None</td>
                         </tr>
                     </thead>
                     <tbody>
                         { patient.characteristics.map((c, i) => (
                             <tr key={i}>
-                                <td className='text-start fw-semibold'>{c.label}</td>
-                                <td className='text-start'>{c.value}</td>
-                                <td>{c.progressionEvidence.radiographic}</td>
-                                <td>{c.progressionEvidence.functional}</td>
-                                <td>{c.progressionEvidence.suspected}</td>
-                                <td>{c.progressionEvidence.none}</td>
+                                <td className='text-start fw-semibold border-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.remove('col-highlight')) }}>{c.label}</td>
+                                <td className='text-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.remove('col-highlight')) }}>{c.value}</td>
+                                <td className='border-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.remove('col-highlight')) }}>{c.progressionEvidence.radiographic}</td>
+                                <td onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.remove('col-highlight')) }}>{c.progressionEvidence.functional}</td>
+                                <td onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.remove('col-highlight')) }}>{c.progressionEvidence.suspected}</td>
+                                <td className='border-end' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(6)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(6)').forEach(el => el.classList.remove('col-highlight')) }}>{c.progressionEvidence.none}</td>
                             </tr>
                         )) }
                     </tbody>

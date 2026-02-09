@@ -39,70 +39,70 @@ export const patients: Patient[] = [
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
-                    functional: '%%',
-                    suspected: '%%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
+                    functional: '---%',
+                    suspected: '---%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
                 }
             },
             {
                 label: 'Grade and behavior',
                 value: 'Grade II benign',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Age at diagnosis',
                 value: '2 years',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Gross total resection',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Molecular driver',
                 value: '7q34-KIAA1549-BRAF Fusion',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
-                    functional: '%%',
-                    suspected: '%%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
+                    functional: '---%',
+                    suspected: '---%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
                 }
             }
         ]
@@ -110,9 +110,9 @@ export const patients: Patient[] = [
     {
         // Patient metadata
         // ---------------------------------------------------------------------
-        name: "Malik Johnson",
-        gender: "Male",
-        dob: "2022-01-05",
+        name: "Nadine Esperanza",
+        gender: "Female",
+        dob: "2012-01-05",
         mrn: "C77613",
         description: `
         This patient is a Hispanic or Latino, Black or African American female
@@ -144,70 +144,70 @@ export const patients: Patient[] = [
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
-                    functional: '%%',
-                    suspected: '%%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
+                    functional: '---%',
+                    suspected: '---%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
                 }
             },
             {
                 label: 'Grade and behavior',
-                value: 'Grade II benign',
+                value: 'Grade I benign',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Age at diagnosis',
                 value: '2 years',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Partial resection',
                 progressionEvidence: {
-                    radiographic: '%%',
-                    functional: '%%',
-                    suspected: '%%',
-                    none: '%%'
+                    radiographic: '---%',
+                    functional: '---%',
+                    suspected: '---%',
+                    none: '---%'
                 }
             },
             {
                 label: 'Molecular driver',
-                value: 'None',
+                value: 'BRAF-KIAA1549',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>,
-                    functional: '%%',
-                    suspected: '%%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">% - dashboard link</a>
+                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
+                    functional: '---%',
+                    suspected: '---%',
+                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
                 }
             }
         ]
