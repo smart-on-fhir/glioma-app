@@ -1,4 +1,4 @@
-import Highcharts             from 'highcharts';
+import Highcharts, { pad }             from 'highcharts';
 import HighchartsReact        from 'highcharts-react-official';
 import 'highcharts/modules/sankey';
 // import 'highcharts/modules/non-cartesian-zoom';
@@ -81,6 +81,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             // },
             // panKey: 'shift',
             height: 650,
+            margin: [10, 0, 10, 0],
         },
         exporting: {
             enabled: false
@@ -167,7 +168,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                 parsed.forEach((row) => {
                     if (row.tx_modality && !seenModality.has(row.tx_modality)) {
                         seenModality.add(row.tx_modality);
-                        acc.push({ id: row.tx_modality, color: '#fed6ab', offset: 60 });
+                        acc.push({ id: row.tx_modality, color: '#fed6ab' });
                     }
                     if (row.tx_class && !seenClass.has(row.tx_class)) {
                         const selected = patient.treatmentClass.includes(row.tx_class);
@@ -177,7 +178,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
 
                     if (row.progression && !seenProgression.has(row.progression)) {
                         seenProgression.add(row.progression);
-                        acc.push({ id: row.progression, color: '#bceab3', offset: 40 });
+                        acc.push({ id: row.progression, color: '#bceab3' });
                     }
                 });
                 return acc;
@@ -193,13 +194,13 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         <div className='mt-5'>
             <div className='row mb-2 gap-5'>
                 <div className='col text-start border-bottom border-3'>
-                    <h5 className='text-success ms-2 px-2 fw-semibold'>Treatment Modality</h5>
+                    <h5 className='text-success fw-semibold'>Treatment Modality</h5>
                 </div>
                 <div className='col text-center border-bottom border-3'>
-                    <h5 className='text-success px-2 fw-semibold'>Treatment Class</h5>
+                    <h5 className='text-success fw-semibold'>Treatment Class</h5>
                 </div>
                 <div className='col text-end border-bottom border-3'>
-                    <h5 className='text-success px-2 fw-semibold'>Treatment Progression</h5>
+                    <h5 className='text-success fw-semibold'>Treatment Progression</h5>
                 </div>
             </div>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
