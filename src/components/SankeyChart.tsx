@@ -6,7 +6,7 @@ import 'highcharts/modules/mouse-wheel-zoom';
 import 'highcharts/modules/exporting';
 import 'highcharts/modules/export-data';
 import 'highcharts/modules/accessibility';
-import 'highcharts/themes/adaptive';
+// import 'highcharts/themes/adaptive';
 import csvText from './gliomacubepatientcasedeftxresponse30days.csv?raw';
 import { parseCsvToObjects } from '../utils';
 
