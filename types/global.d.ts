@@ -5,7 +5,7 @@ declare type Patient = {
     gender: string;
     description: string;
     
-    treatmentModality: string[];
+    treatmentClass: string[];
 
     characteristics: PatientCharacteristic[];
 };

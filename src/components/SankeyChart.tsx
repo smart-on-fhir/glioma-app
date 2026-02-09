@@ -34,7 +34,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             row.tx_specific === null &&
             row.visual_status === null
         ) {
-            const selected = patient.treatmentModality.includes(row.tx_class);
+            const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
                 from  : row.tx_modality,
                 to    : row.tx_class,
@@ -66,7 +66,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             row.tx_specific === null &&
             row.visual_status === null
         ) {
-            const selected = patient.treatmentModality.includes(row.tx_class);
+            const selected = patient.treatmentClass.includes(row.tx_class);
             acc.push({
                 from: row.tx_class,
                 to: row.progression,
@@ -250,6 +250,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         acc.push({ id: row.tx_modality, color: '#fed6ab', offset: 60 });
                     }
                     if (row.tx_class && !seenClass.has(row.tx_class)) {
+                        const selected = patient.treatmentClass.includes(row.tx_class);
                         seenClass.add(row.tx_class);
                         acc.push({ id: row.tx_class, color: '#a7d3ff' });
                     }

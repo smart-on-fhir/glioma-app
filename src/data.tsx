@@ -22,7 +22,7 @@ export const patients: Patient[] = [
         and trametinib, including enrollment on a clinical trial. Comprehensive
         tumor and germline molecular profiling was performed.`,
 
-        treatmentModality: [
+        treatmentClass: [
             'ALKYLATING',
             'BRAF',
             'CHEMOTHERAPY',
@@ -127,7 +127,7 @@ export const patients: Patient[] = [
         temozolomide, and combination therapies. Extensive tumor and germline
         molecular profiling has been performed.`,
 
-        treatmentModality: [
+        treatmentClass: [
             'ALKYLATING',
             'MEK',
             'MTOR',
