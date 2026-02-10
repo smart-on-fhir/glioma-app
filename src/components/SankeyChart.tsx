@@ -1,3 +1,4 @@
+import { useState }          from 'react';
 import Highcharts            from 'highcharts';
 import HighchartsReact       from 'highcharts-react-official';
 import { parseCsvToObjects } from '../utils';
@@ -8,11 +9,36 @@ import 'highcharts/modules/accessibility';
 const parsed = parseCsvToObjects(csvText);
 
 
-
+const CNT_COLUMN = 'cnt';
 const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
 
+// Look for combinations of a + b + cnt, with all other columns null
+function isValidRow(row: Record<string, any>, a: string, b: string) {
+    for (const col in row) {
+        if (col === a && row[col] === null) {
+            return false;
+        }
+        if (col === b && row[col] === null) {
+            return false;
+        }
+        if (col === CNT_COLUMN && row[col] === null) {
+            return false;
+        }
+        // Any row that has data on columns other than a, b, or cnt is invalid for our purposes
+        if (col !== a && col !== b && col !== CNT_COLUMN && row[col] !== null) {
+            return false;
+        }
+    }
+    return true;
+}
 
 export default function SankeyChart({ patient }: { patient: Patient }) {
+
+    const headers = Object.keys(parsed[0] || {});
+
+    const column1 = 'tx_modality';
+    const column2 = 'tx_class';
+    const [column3, setColumn3] = useState<string>('progression');
 
     // Columns:
     //   cnt, progression, regrowth_pattern, symptom_burden, tx_class,
@@ -20,43 +46,24 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
     const data: any[] = parsed.reduce((acc: any[], row) => {
 
         // tx_modality -> tx_class (count)
-        if (
-            row.tx_modality &&
-            row.tx_class &&
-            row.cnt &&
-            row.progression === null&&
-            row.regrowth_pattern === null &&
-            row.symptom_burden === null &&
-            row.tx_specific === null &&
-            row.visual_status === null
-        ) {
-            const selected = patient.treatmentClass.includes(row.tx_class);
+        if (isValidRow(row, column1, column2)) {
+            const selected = patient.treatmentClass.includes(row[column2] as any);
             acc.push({
-                from       : 'modality:' + row.tx_modality,
-                to         : 'class:' + row.tx_class,
-                weight     : parseFloat(row.cnt),
+                from       : column1 + ':' + row[column1],
+                to         : column2 + ':' + row[column2],
+                weight     : parseFloat(row[CNT_COLUMN]!),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected }
             });
         }
 
         // tx_class -> progression (count)
-        else if (
-            row.progression &&
-            row.tx_class &&
-            row.cnt &&
-            row.tx_modality === null&&
-            row.regrowth_pattern === null &&
-            row.symptom_burden === null &&
-            row.tx_specific === null &&
-            row.visual_status === null
-        ) {
-            const selected = patient.treatmentClass.includes(row.tx_class);
+        if (isValidRow(row, column2, column3)) {
+            const selected = patient.treatmentClass.includes(row[column2] as any);
             acc.push({
-                from       : 'class:' + row.tx_class,
-                to         : 'progression:' + row.progression,
-                id         : row.tx_class + '_to_' + row.progression,
-                weight     : parseFloat(row.cnt),
+                from       : column2 + ':' + row[column2],
+                to         : column3 + ':' + row[column3],
+                weight     : parseFloat(row[CNT_COLUMN]!),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected },
             });
@@ -136,18 +143,18 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             keys: ['from', 'to', 'weight'],
             nodes: (() => {
                 const acc: any[] = [];
-                const seenModality = new Set<string>();
-                const seenProgression = new Set<string>();
-                const seenClass = new Set<string>();
+                const seen1 = new Set<string>();
+                const seen2 = new Set<string>();
+                const seen3 = new Set<string>();
                 parsed.forEach((row) => {
-                    if (row.tx_modality) {
-                        const selected = row.tx_class && patient.treatmentClass.includes(row.tx_class);
-                        if (!seenModality.has(row.tx_modality)) {
-                            seenModality.add(row.tx_modality);
+                    if (row[column1]) {
+                        const selected = row[column2] && patient.treatmentClass.includes(row[column2] as any);
+                        if (!seen1.has(row[column1])) {
+                            seen1.add(row[column1]);
                             acc.push({
-                                id: 'modality:' + row.tx_modality,
+                                id: column1 + ':' + row[column1],
                                 color: '#fed6ab',
-                                name: row.tx_modality.replaceAll('_', ' '),
+                                name: row[column1].replaceAll('_', ' '),
                                 opacity: selected ? 1: 0.5,
                                 dataLabels: {
                                     format: selected ? '{point.name} ▶︎' : '{point.name}',
@@ -160,7 +167,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         } else {
                             if (selected) {
                                 // Update existing node to selected state
-                                const node = acc.find(n => n.id === 'modality:' + row.tx_modality);
+                                const node = acc.find(n => n.id === column1 + ':' + row[column1]);
                                 if (node) {
                                     node.opacity = 1;
                                     node.dataLabels = {
@@ -174,13 +181,14 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             }
                         }
                     }
-                    if (row.tx_class && !seenClass.has(row.tx_class)) {
-                        const selected = patient.treatmentClass.includes(row.tx_class);
-                        seenClass.add(row.tx_class);
+
+                    if (row[column2] && !seen3.has(row[column2])) {
+                        const selected = patient.treatmentClass.includes(row[column2]);
+                        seen3.add(row[column2]);
                         acc.push({
-                            id: 'class:' + row.tx_class,
+                            id: column2 + ':' + row[column2],
                             color: selected ? '#8ac4ff' : '#d4e9ff',
-                            name: row.tx_class.replaceAll('_', ' '),
+                            name: row[column2].replaceAll('_', ' '),
                             dataLabels: {
                                 format: selected ? '{point.name} ▶︎' : '{point.name}',
                                 style: {
@@ -191,9 +199,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         });
                     }
 
-                    if (row.progression && !seenProgression.has(row.progression)) {
-                        seenProgression.add(row.progression);
-                        acc.push({ id: 'progression:' + row.progression, color: '#bceab3', name: row.progression.replaceAll('_', ' ') });
+                    if (row[column3] && !seen2.has(row[column3])) {
+                        seen2.add(row[column3]);
+                        acc.push({ id: column3 + ':' + row[column3], color: '#bceab3', name: row[column3].replaceAll('_', ' ') });
                     }
                 });
                 return acc;
@@ -215,7 +223,33 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     <h5 className='text-success fw-semibold'>Treatment Class</h5>
                 </div>
                 <div className='col text-end border-bottom border-3'>
-                    <h5 className='text-success fw-semibold'>Treatment Progression</h5>
+                    <h5 className='text-success fw-semibold'>
+                        {/* Treatment Progression */}
+                    <select className='' onChange={(e) => {setColumn3(e.target.value) }} value={column3} style={{
+                        width: '100%',
+                        font: 'inherit',
+                        color: 'inherit',
+                        border: 'none',
+                        background: 'transparent',
+                        padding: '0 0.2em 0 0',
+                        margin: 0,
+                        cursor: 'pointer',
+                        outline: 'none',
+                        textAlign: 'inherit'
+                    }}>
+                        { headers.filter(h => h !== column1 && h !== column2 && h !== CNT_COLUMN).map((col) => (
+                            <option key={col} value={col}>{col.replaceAll('_', ' ')}</option>
+                        )) }
+                        {/* <option value="cnt">cnt</option>
+                        <option value="progression">progression</option>
+                        <option value="regrowth_pattern">regrowth_pattern</option>
+                        <option value="symptom_burden">symptom_burden</option>
+                        <option value="tx_class">tx_class</option>
+                        <option value="tx_modality">tx_modality</option>
+                        <option value="tx_specific">tx_specific</option>
+                        <option value="visual_status">visual_status</option> */}
+                    </select>
+                    </h5>
                 </div>
             </div>
             <HighchartsReact highcharts={Highcharts} options={chartOptions} />
