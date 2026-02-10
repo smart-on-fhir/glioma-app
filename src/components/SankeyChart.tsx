@@ -51,7 +51,7 @@ const columns = {
     },
     site: {
         label: "Site",
-        // description: "Site of the tumor."
+        description: ""
     },
 };
 
