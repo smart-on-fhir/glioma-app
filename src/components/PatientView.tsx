@@ -17,7 +17,7 @@ export default function PatientView() {
         <div>
             <Link to="../"><i className="bi bi-arrow-left-circle me-2"></i>Back to list</Link>
             <PatientListItem patient={patient} />
-            <h2 className='text-center'>Real World Evidence for Children like {patient.name}</h2>
+            <h2 className='text-center'>Real World Evidence from Children like {patient.name}</h2>
             <SankeyChart patient={patient} />
             <div className="table-responsive mt-5">
                 <table className="table table-hover w-100 mb-0">
