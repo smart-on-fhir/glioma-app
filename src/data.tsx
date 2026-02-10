@@ -39,70 +39,70 @@ export const patients: Patient[] = [
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
-                    functional: '---%',
-                    suspected: '---%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Grade and behavior',
                 value: 'Grade II benign',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Age at diagnosis',
                 value: '2 years',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Gross total resection',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Molecular driver',
                 value: '7q34-KIAA1549-BRAF Fusion',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
-                    functional: '---%',
-                    suspected: '---%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             }
         ]
@@ -171,26 +171,10 @@ export const patients: Patient[] = [
                 label: 'Grade and behavior',
                 value: 'Grade I benign',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    )
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
@@ -224,104 +208,40 @@ export const patients: Patient[] = [
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    )
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    )
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Partial resection',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    )
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             },
             {
                 label: 'Molecular driver',
                 value: 'BRAF-KIAA1549',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            00%<small className="opacity-50 ms-1">(00/00)&nbsp;</small>
-                        </>
-                    )
+                    radiographic: null,
+                    functional: null,
+                    suspected: null,
+                    none: null
                 }
             }
         ]
