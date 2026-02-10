@@ -126,7 +126,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     style: {
                         textOutline: '1px #FFF8',
                         fontWeight : 'bold',
-                        fontSize   : '12px',
+                        fontSize   : '14px',
                         fontFamily : 'sans-serif',
                     }
                 }
