@@ -143,71 +143,212 @@ export const patients: Patient[] = [
             {
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
+                link: 'https://www.smartcumulus.org/pcx/views/6',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
-                    functional: '---%',
-                    suspected: '---%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
+                    radiographic: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/6" target="_blank" rel="noopener noreferrer">67%</a>
+                            <small className="opacity-50 ms-1">(71/106)</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/6" target="_blank" rel="noopener noreferrer">46%</a>
+                            <small className="opacity-50 ms-1">(49/106)</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/6" target="_blank" rel="noopener noreferrer">27%</a>
+                            <small className="opacity-50 ms-1">(29/106)</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/6" target="_blank" rel="noopener noreferrer">29%</a>
+                            <small className="opacity-50 ms-1">(31/106)</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Grade and behavior',
                 value: 'Grade I benign',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Age at diagnosis',
                 value: '2 years',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/8" target="_blank" rel="noopener noreferrer">61%</a>
+                            <small className="opacity-50 ms-1">(42/69)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/8" target="_blank" rel="noopener noreferrer">42%</a>
+                            <small className="opacity-50 ms-1">(29/69)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/8" target="_blank" rel="noopener noreferrer">35%</a>
+                            <small className="opacity-50 ms-1">(24/69)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a href="https://www.smartcumulus.org/pcx/views/8" target="_blank" rel="noopener noreferrer">36%</a>
+                            <small className="opacity-50 ms-1">(25/69)&nbsp;</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Partial resection',
                 progressionEvidence: {
-                    radiographic: '---%',
-                    functional: '---%',
-                    suspected: '---%',
-                    none: '---%'
+                    radiographic: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    )
                 }
             },
             {
                 label: 'Molecular driver',
                 value: 'BRAF-KIAA1549',
                 progressionEvidence: {
-                    radiographic: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>,
-                    functional: '---%',
-                    suspected: '---%',
-                    none: <a href="https://www.smartcumulus.org/pcx/views/3" target="_blank" rel="noopener noreferrer">---%<i className="bi bi-box-arrow-up-right ms-1" /></a>
+                    radiographic: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    functional: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    suspected: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    ),
+                    none: (
+                        <>
+                            <a target="_blank" rel="noopener noreferrer">00%</a>
+                            <small className="opacity-50 ms-1">(00/00)&nbsp;</small>
+                        </>
+                    )
                 }
             }
         ]
