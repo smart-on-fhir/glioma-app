@@ -17,14 +17,14 @@ export default function PatientView() {
         <div>
             <Link to="../"><i className="bi bi-arrow-left-circle me-2"></i>Back to list</Link>
             <PatientListItem patient={patient} />
-            <h2>Real World Evidence for Children like {patient.name}</h2>
+            <h2 className='text-center'>Real World Evidence for Children like {patient.name}</h2>
             <SankeyChart patient={patient} />
             <div className="table-responsive mt-5">
                 <table className="table table-hover w-100 mb-0">
                     <thead>
                         <tr>
                             <td colSpan={2} rowSpan={2} className=''>
-                                <h5 className='text-success'>Patient Characteristic</h5>
+                                <h5 className='text-success'>{patient.name} Characteristics</h5>
                             </td>
                             <td colSpan={5} className=''>
                                 <h5 className='text-success'>Disease progression evidence.</h5>

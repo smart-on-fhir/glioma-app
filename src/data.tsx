@@ -113,7 +113,7 @@ export const patients: Patient[] = [
         name: "Nadine Esperanza",
         gender: "Female",
         dob: "2012-01-05",
-        mrn: "C77613",
+        mrn: "C136530",
         description: `
         This patient is a Hispanic or Latino, Black or African American female
         born in 2012, enrolled in CBTN in 2014, and diagnosed with a low-grade
@@ -142,7 +142,7 @@ export const patients: Patient[] = [
         characteristics: [
             {
                 label: 'Histology',
-                value: 'Pilomyxoid astrocytoma',
+                value: 'Pilocytic astrocytoma',
                 link: 'https://www.smartcumulus.org/pcx/views/6',
                 progressionEvidence: {
                     radiographic: (
