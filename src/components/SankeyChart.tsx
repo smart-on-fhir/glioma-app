@@ -26,11 +26,11 @@ const columns = {
         description: "Glioma disease progression or stable after 30 days post-treatment."
     },
     regrowth_pattern: {
-        label: "Tumor regrowth pattern",
+        label: "Tumor Regrowth Pattern",
         description: "Glioma tumor regrowth observed"
     },
     symptom_burden: {
-        label: "Glioma symptom burden",
+        label: "Glioma Symptom Burden",
         description: "Glioma symptom burden."
     },
     tx_class: {
@@ -41,17 +41,9 @@ const columns = {
         label: "Treatment Modality",
         description: "Treatment modality (e.g. surgery, chemotherapy, etc)"
     },
-    tx_specific: {
-        label: "Specific treatment",
-        description: "The name of the specific treatment."
-    },
     visual_status: {
-        label: "Visual acuity progression",
+        label: "Visual Acuity Progression",
         description: "Visual acuity (e.g. improving, declining, stable, etc)"
-    },
-    site: {
-        label: "IGNORE DO NOT RENDER",
-        description: "IGNORE DO NOT RENDER."
     },
 };
 
@@ -161,7 +153,11 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             '<hr/><table><tbody>' +
                             this.point.linksFrom.map((link: any) => `<tr><td style="text-align:right"><b>${link.weight}</b> patients</td><td>\u2192</td><td style="text-align:left">${link.toNode.name}</td></tr>`).join('') +
                             '</tbody></table>'
-                        : '');
+                        : ''
+                        // '<hr/><table><tbody>' +
+                        //     this.point.linksTo.map((link: any) => `<tr><td style="text-align:right"><b>${link.weight}</b> patients</td><td> from </td><td style="text-align:left">${link.fromNode.name}</td></tr>`).join('') +
+                        //   '</tbody></table>'
+                        );
                 } else {
                     return `<b>${this.point.fromNode.name} \u2192 ${this.point.toNode.name}</b><br/>${this.point.weight} patients`;
                 }
@@ -249,6 +245,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             id: column2 + ':' + row[column2],
                             color: selected ? '#8ac4ff' : '#d4e9ff',
                             name: row[column2].replaceAll('_', ' '),
+                            width: 240,
                             dataLabels: {
                                 format: selected ? '{point.name} ▶︎' : '{point.name}',
                                 labelRank: selected ? 2 : 0,
@@ -293,10 +290,14 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         <div className='mt-5'>
             <div className='d-flex mb-2 gap-5'>
                 <div className='col text-start border-bottom border-3'>
-                    <h5 className='text-success fw-semibold'>Treatment Modality</h5>
+                    <h5 className='text-success fw-semibold'>
+                        { columns.tx_modality.label }
+                    </h5>
                 </div>
                 <div className='col text-center border-bottom border-3'>
-                    <h5 className='text-success fw-semibold'>Treatment Class</h5>
+                    <h5 className='text-success fw-semibold'>
+                        { columns.tx_class.label }
+                    </h5>
                 </div>
                 <div className='col text-end border-bottom border-3'>
                     <h5 className='text-success fw-semibold'>
@@ -312,7 +313,10 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             outline: 'none',
                             textAlign: 'inherit'
                         }}>
-                            { headers.filter(h => h !== 'site' && h !== column1 && h !== column2 && h !== CNT_COLUMN).map((col) => (
+                            { headers
+                            .filter(h => h !== column1 && h !== column2 && h !== CNT_COLUMN)
+                            .sort((a, b) => (a === 'progression_bin' ? -1 : b === 'progression_bin' ? 1 : 0))
+                            .map((col) => (
                                 <option key={col} value={col} title={columns[col as keyof typeof columns]?.description || undefined}>{ columns[col as keyof typeof columns]?.label || col.replaceAll('_', ' ')}</option>
                             )) }
                         </select>
