@@ -14,44 +14,44 @@ const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
 
 const columns = {
     cnt: {
-        label: "Patients Count",
-        description: "Patients Count"
+        label: "Patient Count",
+        description: "Number of unique patients"
     },
     progression: {
-        label: "Progression",
-        description: "Disease progression status at 30 days post-treatment."
+        label: "Treatment Response (evidence)",
+        description: "Glioma disease progression status at least 30 days post-treatment."
     },
     progression_bin: {
-        label: "Progression Response",
-        description: "Binary disease progression status at 30 days post-treatment."
+        label: "Treatment Response",
+        description: "Glioma disease progression or stable after 30 days post-treatment."
     },
     regrowth_pattern: {
-        label: "Regrowth Pattern",
-        description: "Pattern of tumor regrowth observed at progression."
+        label: "Tumor regrowth pattern",
+        description: "Glioma tumor regrowth observed"
     },
     symptom_burden: {
-        label: "Symptom Burden",
-        description: "Level of symptom burden at 30 days post-treatment."
+        label: "Glioma symptom burden",
+        description: "Glioma symptom burden."
     },
     tx_class: {
         label: "Treatment Class",
-        description: "Class of treatment received (e.g. chemotherapy, radiation, etc.)"
+        description: "Class of treatment (e.g. gross total resection, chemotherapy, BRAF, MEK, etc.)"
     },
     tx_modality: {
         label: "Treatment Modality",
-        description: "Specific modality of treatment received (e.g. oral, IV, etc.)"
+        description: "Treatment modality (e.g. surgery, chemotherapy, etc)"
     },
     tx_specific: {
-        label: "Treatment Specific",
-        description: "Specific treatment details."
+        label: "Specific treatment",
+        description: "The name of the specific treatment."
     },
     visual_status: {
-        label: "Visual Status",
-        description: "Visual status of the patient."
+        label: "Visual acuity progression",
+        description: "Visual acuity (e.g. improving, declining, stable, etc)"
     },
     site: {
-        label: "Site",
-        description: ""
+        label: "IGNORE DO NOT RENDER",
+        description: "IGNORE DO NOT RENDER."
     },
 };
 
@@ -81,7 +81,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
 
     const column1 = 'tx_modality';
     const column2 = 'tx_class';
-    const [column3, setColumn3] = useState<string>('progression');
+    const [column3, setColumn3] = useState<string>('progression_bin');
 
     // Columns:
     //   cnt, progression, regrowth_pattern, symptom_burden, tx_class,
@@ -312,7 +312,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             outline: 'none',
                             textAlign: 'inherit'
                         }}>
-                            { headers.filter(h => h !== column1 && h !== column2 && h !== CNT_COLUMN).map((col) => (
+                            { headers.filter(h => h !== 'site' && h !== column1 && h !== column2 && h !== CNT_COLUMN).map((col) => (
                                 <option key={col} value={col} title={columns[col as keyof typeof columns]?.description || undefined}>{ columns[col as keyof typeof columns]?.label || col.replaceAll('_', ' ')}</option>
                             )) }
                         </select>
