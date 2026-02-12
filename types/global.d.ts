@@ -15,10 +15,14 @@ interface PatientCharacteristic {
     value: ReactNode;
     link?: string;
     progressionEvidence: {
-        radiographic: ReactNode;
-        functional: ReactNode;
-        suspected: ReactNode;
-        none: ReactNode;
+        // radiographic: ReactNode;
+        // functional: ReactNode;
+        // suspected: ReactNode;
+        // none: ReactNode;
+
+        progression    : { value: ReactNode; link?: string };
+        symptomsPresent: { value: ReactNode; link?: string };
+        visionDecline  : { value: ReactNode; link?: string };
     }
 }
 

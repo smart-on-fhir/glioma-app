@@ -35,70 +35,91 @@ export const patients: Patient[] = [
                 label: 'Histology',
                 value: 'Pilomyxoid astrocytoma',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Grade and behavior',
                 value: 'Grade II benign',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Age at diagnosis',
                 value: '2 years',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Tumor location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Tumor mass effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Tumor surgery extent',
                 value: 'Gross total resection',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
                 label: 'Molecular driver',
                 value: '7q34-KIAA1549-BRAF Fusion',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "", value: <span className="opacity-25">-</span> },
+                    symptomsPresent: { link: "", value: <span className="opacity-25">-</span> },
+                    visionDecline  : { link: "", value: <span className="opacity-25">-</span> },
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             }
         ]
@@ -141,103 +162,131 @@ export const patients: Patient[] = [
                 value: 'Pilocytic astrocytoma',
                 link: 'https://www.smartcumulus.org/pcx/views/6',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            67%<small className="opacity-50 ms-1">(71/106)</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            46%<small className="opacity-50 ms-1">(49/106)</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            27%<small className="opacity-50 ms-1">(29/106)</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            29%<small className="opacity-50 ms-1">(31/106)</small>
-                        </>
-                    )
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/24", value: "69%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/26", value: "93%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/25", value: "43%" },
+
+                    // radiographic: (
+                    //     <>
+                    //         67%<small className="opacity-50 ms-1">(71/106)</small>
+                    //     </>
+                    // ),
+                    // functional: (
+                    //     <>
+                    //         46%<small className="opacity-50 ms-1">(49/106)</small>
+                    //     </>
+                    // ),
+                    // suspected: (
+                    //     <>
+                    //         27%<small className="opacity-50 ms-1">(29/106)</small>
+                    //     </>
+                    // ),
+                    // none: (
+                    //     <>
+                    //         29%<small className="opacity-50 ms-1">(31/106)</small>
+                    //     </>
+                    // )
                 }
             },
             {
-                label: 'Grade and behavior',
+                label: 'Glioma Grade',
                 value: 'Grade I benign',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "62%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/47", value: "92%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/48", value: "43%" },
+
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
-                label: 'Age at diagnosis',
+                label: 'Age at Diagnosis',
                 value: '2 years',
                 link: 'https://www.smartcumulus.org/pcx/views/8',
                 progressionEvidence: {
-                    radiographic: (
-                        <>
-                            61%<small className="opacity-50 ms-1">(42/69)&nbsp;</small>
-                        </>
-                    ),
-                    functional: (
-                        <>
-                            42%<small className="opacity-50 ms-1">(29/69)&nbsp;</small>
-                        </>
-                    ),
-                    suspected: (
-                        <>
-                            35%<small className="opacity-50 ms-1">(24/69)&nbsp;</small>
-                        </>
-                    ),
-                    none: (
-                        <>
-                            36%<small className="opacity-50 ms-1">(25/69)&nbsp;</small>
-                        </>
-                    )
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/30", value: "62%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/28", value: "84%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/29", value: "49%" },
+
+                    // radiographic: (
+                    //     <>
+                    //         61%<small className="opacity-50 ms-1">(42/69)&nbsp;</small>
+                    //     </>
+                    // ),
+                    // functional: (
+                    //     <>
+                    //         42%<small className="opacity-50 ms-1">(29/69)&nbsp;</small>
+                    //     </>
+                    // ),
+                    // suspected: (
+                    //     <>
+                    //         35%<small className="opacity-50 ms-1">(24/69)&nbsp;</small>
+                    //     </>
+                    // ),
+                    // none: (
+                    //     <>
+                    //         36%<small className="opacity-50 ms-1">(25/69)&nbsp;</small>
+                    //     </>
+                    // )
                 }
             },
             {
-                label: 'Tumor location',
+                label: 'Tumor Location',
                 value: 'Hypothalamic, diencephalic',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/31", value: "75%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/33", value: "89%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/32", value: "69%" },
+
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
-                label: 'Tumor mass effect',
+                label: 'Tumor Mass Effect',
                 value: 'Hydrocephalus',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/34", value: "68%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/36", value: "90%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/35", value: "45%" },
+                    
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
-                label: 'Tumor surgery extent',
+                label: 'Tumor Surgery Extent',
                 value: 'Partial resection',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "77%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "77%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/38", value: "50%" },
+                    
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             },
             {
-                label: 'Molecular driver',
-                value: 'BRAF-KIAA1549',
+                label: 'Molecular Driver',
+                value: 'BRAF-KIAA1549 fusion',
                 progressionEvidence: {
-                    radiographic: null,
-                    functional: null,
-                    suspected: null,
-                    none: null
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/43", value: "73%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/45", value: "81%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/44", value: "31%" },
+                    
+                    // radiographic: null,
+                    // functional: null,
+                    // suspected: null,
+                    // none: null
                 }
             }
         ]
