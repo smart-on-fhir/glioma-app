@@ -34,6 +34,28 @@ function isValidRow(row: Record<string, any>, a: string, b: string) {
     return true;
 }
 
+function isCountRow(row: Record<string, any>): { col: string, value: number } | null {
+    
+    const keys = Object.keys(row);
+
+    if (keys.filter(k => row[k] !== null).length !== 2) {
+        return null;
+    }
+
+    for (const col of keys) {
+        const value = row[col];
+        
+        if (value !== null && col !== CNT_COLUMN) {
+            // console.log(col, value, row[CNT_COLUMN])
+            return { col: col + ":" + value, value: parseFloat(row[CNT_COLUMN]!) }
+        }
+    }
+
+    return null;
+}
+
+// console.log(parsed)
+
 export default function SankeyChart({ patient }: { patient: Patient }) {
 
     const headers = Object.keys(parsed[0] || {});
@@ -42,10 +64,17 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
     const column2 = 'tx_class';
     const [column3, setColumn3] = useState<string>('progression_bin');
 
+    const weights: Record<string, number> = {};
+
     // Columns:
     //   cnt, progression, regrowth_pattern, symptom_burden, tx_class,
     //   tx_modality, tx_specific, visual_status
     const data: any[] = parsed.reduce((acc: any[], row) => {
+
+        const weight = isCountRow(row);
+        if (weight) {
+            weights[weight.col] = weight.value;
+        }
 
         // tx_modality -> tx_class (count)
         if (isValidRow(row, column1, column2)) {
@@ -73,6 +102,8 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
 
         return acc;
     }, []);
+
+    // console.log("weights:",  weights);
 
     const chartOptions = {
         chart: {
@@ -115,7 +146,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             formatter: function(this: any) {
                 console.log(this)
                 if (this.point.isNode) {
-                    return `<b>${this.point.name}</b><br/>Total: <b>${this.point.linksTo.length ? this.point.linksTo?.reduce((sum: number, link: any) => sum + link.weight, 0) : this.point.sum}</b> patients` +
+                    return `<b>${this.point.name}</b><br/>Total: <b>${this.point.custom.weight}</b> patients` +
                         (this.point.linksFrom.length > 0 ?
                             '<hr/><table><tbody>' +
                             this.point.linksFrom.map((link: any) => `<tr><td style="text-align:right"><b>${link.weight}</b> patients</td><td>\u2192</td><td style="text-align:left">${link.toNode.name}</td></tr>`).join('') +
@@ -177,6 +208,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                                 name: row[column1].replaceAll('_', ' '),
                                 opacity: selected ? 1: 0.5,
                                 labelRank: selected ? 2 : 0,
+                                custom: {
+                                    weight: weights[column1 + ':' + row[column1]] || 0,
+                                },
                                 dataLabels: {
                                     format: selected ? '{point.name} ▶︎' : '{point.name}',
                                     style: {
@@ -192,6 +226,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                                 if (node) {
                                     node.opacity = 1;
                                     node.labelRank = 2;
+                                    node.custom = {
+                                        weight: weights[column1 + ':' + row[column1]] || 0,
+                                    };
                                     node.dataLabels = {
                                         format: '{point.name} ▶︎',
                                         style: {
@@ -211,6 +248,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             id: column2 + ':' + row[column2],
                             color: selected ? '#8ac4ff' : '#d4e9ff',
                             name: row[column2].replaceAll('_', ' '),
+                            custom: {
+                                weight: weights[column2 + ':' + row[column2]] || 0,
+                            },
                             dataLabels: {
                                 format: selected ? '{point.name} ▶︎' : '{point.name}',
                                 labelRank: selected ? 2 : 0,
@@ -228,6 +268,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             id: column3 + ':' + row[column3],
                             color: '#bceab3',
                             name: row[column3].replaceAll('_', ' '),
+                            custom: {
+                                weight: weights[column3 + ':' + row[column3]] || 0,
+                            },
                             // dataLabels: {
                             //     format: '{point.name}',
                             //     labelRank: 1,
