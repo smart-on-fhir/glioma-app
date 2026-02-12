@@ -237,7 +237,7 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Location',
-                value: <><b>Hypothalamic, diencephalic</b> <span className="text-secondary"></span></>,
+                value: <><b>Hypothalamic</b> <span className="text-secondary"></span></>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/31", value: "75%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/33", value: "89%" },
