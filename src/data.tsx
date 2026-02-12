@@ -249,7 +249,7 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Mass Effect',
-                value: <><b>Hydrocephalus</b> <span className="text-secondary">(N=223)</span></>,
+                value: <><b>Hydrocephalus</b> <span className="text-secondary">(N = 223)</span></>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/34", value: "68%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/36", value: "90%" },
@@ -263,7 +263,7 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Surgery Extent',
-                value: <><b>Partial resection</b> <span className="text-secondary">(N=30)</span></>,
+                value: <><b>Partial resection</b> <span className="text-secondary">(N = 30)</span></>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "77%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "77%" },
@@ -277,7 +277,7 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Molecular Driver',
-                value: <><b>BRAF-KIAA1549 fusion</b> <span className="text-secondary">(N=74)</span></>,
+                value: <><b>BRAF-KIAA1549 fusion</b> <span className="text-secondary">(N = 74)</span></>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/43", value: "73%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/45", value: "81%" },
