@@ -91,8 +91,8 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         if (isValidRow(row, column1, column2)) {
             const selected = patient.treatmentClass.includes(row[column2] as any);
             acc.push({
-                from       : column1 + ':' + row[column1],
-                to         : column2 + ':' + row[column2],
+                from       : column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED'),
+                to         : column2 + ':' + row[column2]!.replace('cumulus__none', 'NOT_MENTIONED'),
                 weight     : parseFloat(row[CNT_COLUMN]!),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected }
@@ -103,8 +103,8 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
         if (isValidRow(row, column2, column3)) {
             const selected = patient.treatmentClass.includes(row[column2] as any);
             acc.push({
-                from       : column2 + ':' + row[column2],
-                to         : column3 + ':' + row[column3],
+                from       : column2 + ':' + row[column2]!.replace('cumulus__none', 'NOT_MENTIONED'),
+                to         : column3 + ':' + row[column3]!.replace('cumulus__none', 'NOT_MENTIONED'),
                 weight     : parseFloat(row[CNT_COLUMN]!),
                 linkOpacity: selected ? 1 : 0.3,
                 custom     : { selected },
@@ -214,13 +214,13 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         if (!seen1.has(row[column1])) {
                             seen1.add(row[column1]);
                             acc.push({
-                                id: column1 + ':' + row[column1],
+                                id: column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED'),
                                 color: '#eae4bf',
                                 name: row[column1].replaceAll('_', ' '),
                                 opacity: selected ? 1: 0.5,
                                 labelRank: selected ? 2 : 0,
                                 custom: {
-                                    weight: weights[column1 + ':' + row[column1]] || 0,
+                                    weight: weights[column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                                 },
                                 dataLabels: {
                                     format: selected ? '{point.name} ▶︎' : '{point.name}',
@@ -233,12 +233,12 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         } else {
                             if (selected) {
                                 // Update existing node to selected state
-                                const node = acc.find(n => n.id === column1 + ':' + row[column1]);
+                                const node = acc.find(n => n.id === column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED'));
                                 if (node) {
                                     node.opacity = 1;
                                     node.labelRank = 2;
                                     node.custom = {
-                                        weight: weights[column1 + ':' + row[column1]] || 0,
+                                        weight: weights[column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                                     };
                                     node.dataLabels = {
                                         format: '{point.name} ▶︎',
@@ -256,11 +256,11 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         const selected = patient.treatmentClass.includes(row[column2]);
                         seen3.add(row[column2]);
                         acc.push({
-                            id: column2 + ':' + row[column2],
+                            id: column2 + ':' + row[column2]!.replace('cumulus__none', 'NOT_MENTIONED'),
                             color: selected ? '#8ac4ff' : '#d4e9ff',
                             name: row[column2].replaceAll('_', ' '),
                             custom: {
-                                weight: weights[column2 + ':' + row[column2]] || 0,
+                                weight: weights[column2 + ':' + row[column2]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                             },
                             dataLabels: {
                                 format: selected ? '{point.name} ▶︎' : '{point.name}',
@@ -274,13 +274,13 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     }
 
                     if (row[column3] && !seen2.has(row[column3])) {
-                        seen2.add(row[column3]);
+                        seen2.add(row[column3]!.replace('cumulus__none', 'NOT_MENTIONED'));
                         acc.push({
-                            id: column3 + ':' + row[column3],
-                            color: getColorForNode(column3, row[column3]), //'#bceab3',
-                            name: row[column3].replaceAll('_', ' '),
+                            id: column3 + ':' + row[column3]!.replace('cumulus__none', 'NOT_MENTIONED'),
+                            color: getColorForNode(column3, row[column3]!.replace('cumulus__none', 'NOT_MENTIONED')), //'#bceab3',
+                            name: row[column3]!.replaceAll('_', ' '),
                             custom: {
-                                weight: weights[column3 + ':' + row[column3]] || 0,
+                                weight: weights[column3 + ':' + row[column3]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                             },
                             // dataLabels: {
                             //     format: '{point.name}',
