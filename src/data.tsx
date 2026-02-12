@@ -334,7 +334,7 @@ export const columns: Record<string, ColumnDescriptor> = {
     progression_bin: {
         label: "Treatment Response",
         description: "Glioma disease progression or stable after 30 days post-treatment.",
-        order: -1
+        order: 1
     },
     regrowth_pattern: {
         label: "Tumor Regrowth Pattern",
