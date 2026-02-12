@@ -54,6 +54,17 @@ function isCountRow(row: Record<string, any>): { col: string, value: number } | 
     return null;
 }
 
+function getColorForNode(column: string, value: string): string {
+    const map = {
+        "progression_bin:PROGRESSION"       : '#ff9999',
+        "progression_bin:STABLE"            : '#99EE99',
+        "symptom_burden_bin:SYMPTOM_PRESENT": '#ffcc99',
+        "symptom_burden_bin:NOT_MENTIONED"  : '#DDDDDD',
+        "visual_status_bin:IMPROVING"       : '#99EE99',
+        "visual_status_bin:DECLINING"       : '#ff9999',
+    };
+    return map[String(column + ':' + value) as keyof typeof map] || '#DDDDDD';
+}
 // console.log(parsed)
 
 export default function SankeyChart({ patient }: { patient: Patient }) {
@@ -204,7 +215,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             seen1.add(row[column1]);
                             acc.push({
                                 id: column1 + ':' + row[column1],
-                                color: '#fed6ab',
+                                color: '#eae4bf',
                                 name: row[column1].replaceAll('_', ' '),
                                 opacity: selected ? 1: 0.5,
                                 labelRank: selected ? 2 : 0,
@@ -266,7 +277,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                         seen2.add(row[column3]);
                         acc.push({
                             id: column3 + ':' + row[column3],
-                            color: '#bceab3',
+                            color: getColorForNode(column3, row[column3]), //'#bceab3',
                             name: row[column3].replaceAll('_', ' '),
                             custom: {
                                 weight: weights[column3 + ':' + row[column3]] || 0,
