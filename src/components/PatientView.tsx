@@ -21,7 +21,7 @@ export default function PatientView() {
                 <table className="table table-hover w-100 mb-0">
                     <thead>
                         <tr>
-                            <td colSpan={2} rowSpan={2} className='align-top'>
+                            <td colSpan={3} rowSpan={2} className='align-top'>
                                 <h5 className='text-success'>Patients matching {patient.firstName}'s glioma characteristics</h5>
                             </td>
                             <td colSpan={3} className=''>
@@ -49,21 +49,24 @@ export default function PatientView() {
                                 <td className='text-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.remove('col-highlight')) }}>
                                     {c.value}
                                 </td>
-                                <td className='border-start font-monospace whitespace-pre' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.remove('col-highlight')) }}>
+                                <td className='text-end text-nowrap' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(3)').forEach(el => el.classList.remove('col-highlight')) }}>
+                                    {c.link || null}
+                                </td>
+                                <td className='border-start font-monospace whitespace-pre' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.remove('col-highlight')) }}>
                                     {
                                         c.progressionEvidence.progression?.link ?
                                             <a href={c.progressionEvidence.progression.link} target="_blank" rel="noopener noreferrer" className='text-decoration-none'>{c.progressionEvidence.progression.value}</a> :
                                             c.progressionEvidence.progression?.value
                                     }
                                 </td>
-                                <td className='font-monospace whitespace-pre' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(4)').forEach(el => el.classList.remove('col-highlight')) }}>
+                                <td className='font-monospace whitespace-pre' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.remove('col-highlight')) }}>
                                     {
                                         c.progressionEvidence.symptomsPresent?.link ?
                                             <a href={c.progressionEvidence.symptomsPresent.link} target="_blank" rel="noopener noreferrer" className='text-decoration-none'>{c.progressionEvidence.symptomsPresent.value}</a> :
                                             c.progressionEvidence.symptomsPresent?.value
                                     }
                                 </td>
-                                <td className='font-monospace whitespace-pre border-end' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(5)').forEach(el => el.classList.remove('col-highlight')) }}>
+                                <td className='font-monospace whitespace-pre border-end' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(6)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(6)').forEach(el => el.classList.remove('col-highlight')) }}>
                                     {
                                         c.progressionEvidence.visionDecline?.link ?
                                             <a href={c.progressionEvidence.visionDecline.link} target="_blank" rel="noopener noreferrer" className='text-decoration-none'>{c.progressionEvidence.visionDecline.value}</a> :

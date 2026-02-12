@@ -161,7 +161,8 @@ export const patients: Patient[] = [
         characteristics: [
             {
                 label: 'Histology',
-                value: <><b>Pilocytic astrocytoma</b> <span className="text-secondary">(N = 106)</span></>,
+                value: <><b>Pilocytic astrocytoma</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/53" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 106)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/20", value: "69%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/26", value: "93%" },
@@ -191,7 +192,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Glioma Grade',
-                value: <><b>WHO Grade I</b> <span className="text-secondary">(N = 82)</span></>,
+                value: <><b>WHO Grade I</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/12" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 82)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "68%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/47", value: "89%" },
@@ -205,7 +207,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Age at Diagnosis',
-                value: <><b>2 years</b> <span className="text-secondary">(N = 69)</span></>,
+                value: <><b>2 years</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/61" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 69)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/30", value: "62%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/28", value: "84%" },
@@ -235,7 +238,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Location',
-                value: <><b>Hypothalamic</b> <span className="text-secondary">(N = 38)</span></>,
+                value: <><b>Hypothalamic</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/54" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 64)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/31", value: "75%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/33", value: "89%" },
@@ -249,7 +253,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Mass Effect',
-                value: <><b>Hydrocephalus</b> <span className="text-secondary">(N = 223)</span></>,
+                value: <><b>Hydrocephalus</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/55" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 223)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/34", value: "68%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/36", value: "90%" },
@@ -263,7 +268,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Surgery Extent',
-                value: <><b>Partial resection</b> <span className="text-secondary">(N = 77)</span></>,
+                value: <><b>Partial resection</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/57" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 77)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "77%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "77%" },
@@ -277,7 +283,8 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Molecular Driver',
-                value: <><b>BRAF-KIAA1549 fusion</b> <span className="text-secondary">(N = 74)</span></>,
+                value: <><b>BRAF-KIAA1549 fusion</b> </>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/58" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 135)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/43", value: "73%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/45", value: "81%" },

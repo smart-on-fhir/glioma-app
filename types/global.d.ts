@@ -14,7 +14,7 @@ declare type Patient = {
 interface PatientCharacteristic {
     label: ReactNode;
     value: ReactNode;
-    link?: string;
+    link?: ReactNode;
     progressionEvidence: {
         // radiographic: ReactNode;
         // functional: ReactNode;
