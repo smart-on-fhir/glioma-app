@@ -1,7 +1,3 @@
-// import BoxPlot from "./components/BoxPlot";
-
-// const base = String(import.meta.env.VITE_BASE_URL || '/').replace(/\/+$/, '');
-
 export const patients: Patient[] = [
     {
         // Patient metadata
@@ -247,3 +243,85 @@ export const patients: Patient[] = [
         ]
     }
 ];
+
+interface ColumnDescriptor {
+    /**
+     * The display label for the column, used in the UI (dropdowns, headers...)
+     */
+    label: string;
+
+    /**
+     * A brief description of the column, used for tooltips or additional
+     * context in the UI.
+     */
+    description: string;
+    
+    /**
+     * If set to false, this column will be hidden from the column selection
+     * dropdowns and won't be available for visualization. This is useful for
+     * columns that are needed for internal logic or filtering but shouldn't be
+     * directly visualized by users.
+     */
+    enabled?: boolean;
+
+    /**
+     * An optional number that indicates the display order of columns in the UI.
+     * Columns with lower order values will be displayed after those with higher
+     * values. If not specified, the order value defaults to 0, so use positive
+     * numbers to move up and negative numbers to move down.
+     */
+    order?: number;
+}
+
+export const columns: Record<string, ColumnDescriptor> = {
+    cnt: {
+        label: "Patient Count",
+        description: "Number of unique patients"
+    },
+    progression: {
+        label: "Treatment Response (evidence)",
+        description: "Glioma disease progression status at least 30 days post-treatment."
+    },
+    progression_bin: {
+        label: "Treatment Response",
+        description: "Glioma disease progression or stable after 30 days post-treatment.",
+        order: -1
+    },
+    regrowth_pattern: {
+        label: "Tumor Regrowth Pattern",
+        description: "Glioma tumor regrowth observed"
+    },
+    symptom_burden: {
+        label: "Glioma Symptom Burden",
+        description: "Glioma symptom burden."
+    },
+    symptom_burden_bin: {
+        label: "Glioma Symptom Burden",
+        description: "Glioma symptom burden."
+    },
+    tx_class: {
+        label: "Treatment Class",
+        description: "Class of treatment (e.g. gross total resection, chemotherapy, BRAF, MEK, etc.)"
+    },
+    tx_modality: {
+        label: "Treatment Modality",
+        description: "Treatment modality (e.g. surgery, chemotherapy, etc)"
+    },
+    visual_status: {
+        label: "Visual Acuity Progression",
+        description: "Visual acuity (e.g. improving, declining, stable, etc)"
+    },
+    visual_status_bin: {
+        label: "Visual Acuity Progression",
+        description: "Visual acuity (e.g. improving, declining, stable, etc)"
+    },
+    tx_specific: {
+        label: "Specific Treatment",
+        description: "The name of the specific treatment."
+    },
+    site: {
+        label: "Healthcare Site",
+        description: "Healthcare Site Name",
+        enabled: false
+    },
+};

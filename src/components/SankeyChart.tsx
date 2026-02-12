@@ -1,6 +1,7 @@
 import { useState }          from 'react';
 import Highcharts            from 'highcharts';
 import HighchartsReact       from 'highcharts-react-official';
+import { columns }           from '../data';
 import { parseCsvToObjects } from '../utils';
 import csvText               from './gliomacubepatientcasedeftxresponse30days.csv?raw';
 import 'highcharts/modules/sankey';
@@ -12,40 +13,6 @@ const parsed = parseCsvToObjects(csvText);
 const CNT_COLUMN = 'cnt';
 const SELECTION_COLOR = '#0d6efd'; // Bootstrap primary blue
 
-const columns = {
-    cnt: {
-        label: "Patient Count",
-        description: "Number of unique patients"
-    },
-    progression: {
-        label: "Treatment Response (evidence)",
-        description: "Glioma disease progression status at least 30 days post-treatment."
-    },
-    progression_bin: {
-        label: "Treatment Response",
-        description: "Glioma disease progression or stable after 30 days post-treatment."
-    },
-    regrowth_pattern: {
-        label: "Tumor Regrowth Pattern",
-        description: "Glioma tumor regrowth observed"
-    },
-    symptom_burden: {
-        label: "Glioma Symptom Burden",
-        description: "Glioma symptom burden."
-    },
-    tx_class: {
-        label: "Treatment Class",
-        description: "Class of treatment (e.g. gross total resection, chemotherapy, BRAF, MEK, etc.)"
-    },
-    tx_modality: {
-        label: "Treatment Modality",
-        description: "Treatment modality (e.g. surgery, chemotherapy, etc)"
-    },
-    visual_status: {
-        label: "Visual Acuity Progression",
-        description: "Visual acuity (e.g. improving, declining, stable, etc)"
-    },
-};
 
 // Look for combinations of a + b + cnt, with all other columns null
 function isValidRow(row: Record<string, any>, a: string, b: string) {
@@ -148,7 +115,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             formatter: function(this: any) {
                 console.log(this)
                 if (this.point.isNode) {
-                    return `<b>${this.point.name}</b><br/>Total: <b>${this.point.sum}</b> patients` +
+                    return `<b>${this.point.name}</b><br/>Total: <b>${this.point.linksTo.length ? this.point.linksTo?.reduce((sum: number, link: any) => sum + link.weight, 0) : this.point.sum}</b> patients` +
                         (this.point.linksFrom.length > 0 ?
                             '<hr/><table><tbody>' +
                             this.point.linksFrom.map((link: any) => `<tr><td style="text-align:right"><b>${link.weight}</b> patients</td><td>\u2192</td><td style="text-align:left">${link.toNode.name}</td></tr>`).join('') +
@@ -173,8 +140,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                 minLinkWidth: 3,
                 linkColorMode: 'gradient',
                 linkColor: '#CCCCCC',
-
-                nodeWidth  : 220,
+                nodeWidth  : '20%',
                 nodeAlignment: 'top',
                 nodeDistance: '100%',
                 nodePadding: 6,
@@ -245,13 +211,9 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             id: column2 + ':' + row[column2],
                             color: selected ? '#8ac4ff' : '#d4e9ff',
                             name: row[column2].replaceAll('_', ' '),
-                            width: 240,
                             dataLabels: {
                                 format: selected ? '{point.name} ▶︎' : '{point.name}',
                                 labelRank: selected ? 2 : 0,
-                                // padding: 0,
-                                // allowOverlap: selected,
-                                // allowOverlap: true,
                                 style: {
                                     color: selected ? '#000' : '#6382a1',
                                     textOutline: selected ? '1px #FFFC' : '1px #FFF6'
@@ -314,8 +276,8 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                             textAlign: 'inherit'
                         }}>
                             { headers
-                            .filter(h => h !== column1 && h !== column2 && h !== CNT_COLUMN)
-                            .sort((a, b) => (a === 'progression_bin' ? -1 : b === 'progression_bin' ? 1 : 0))
+                            .filter(h => h !== column1 && h !== column2 && h !== CNT_COLUMN && columns[h as keyof typeof columns]?.enabled !== false)
+                            .sort((a, b) => ((columns[b as keyof typeof columns]?.order ?? 0) - (columns[a as keyof typeof columns]?.order ?? 0)))
                             .map((col) => (
                                 <option key={col} value={col} title={columns[col as keyof typeof columns]?.description || undefined}>{ columns[col as keyof typeof columns]?.label || col.replaceAll('_', ' ')}</option>
                             )) }
