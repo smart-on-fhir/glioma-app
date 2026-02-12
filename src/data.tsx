@@ -362,7 +362,7 @@ export const columns: Record<string, ColumnDescriptor> = {
     },
     visual_status_bin: {
         label: "Visual Decline",
-        description: "Visual acuity (e.g. improving, declining, stable, etc)"
+        description: "Visual status change (e.g. improving, declining, stable, etc)"
     },
     tx_specific: {
         label: "Specific Treatment",
