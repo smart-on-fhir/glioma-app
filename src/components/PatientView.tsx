@@ -23,15 +23,15 @@ export default function PatientView() {
                 <table className="table table-hover w-100 mb-0">
                     <thead>
                         <tr>
-                            <td colSpan={2} rowSpan={2} className=''>
-                                <h5 className='text-success'>{patient.name} Characteristics</h5>
+                            <td colSpan={2} rowSpan={2} className='align-top'>
+                                <h5 className='text-success'>{patient.name} <small className='text-muted'>({patient.mrn})</small></h5>
                             </td>
                             <td colSpan={4} className=''>
-                                <h5 className='text-success'>Disease progression evidence.</h5>
-                                <small className="text-muted">
+                                <h5 className='text-success'>Observed outcome rates for patients like {patient.name}</h5>
+                                {/* <small className="text-muted">
                                 Probability of progression given patient
                                 characteristic.<br />Equation: <code>P(progression | characteristic)</code>. 
-                                </small>
+                                </small> */}
                             </td>
                             <td className='border-0' />
                         </tr>
