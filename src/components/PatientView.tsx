@@ -26,14 +26,13 @@ export default function PatientView() {
                             <td colSpan={2} rowSpan={2} className='align-top'>
                                 <h5 className='text-success'>{patient.name} <small className='text-muted'>({patient.mrn})</small></h5>
                             </td>
-                            <td colSpan={4} className=''>
+                            <td colSpan={3} className=''>
                                 <h5 className='text-success'>Observed outcome rates for patients like {patient.firstName}</h5>
                                 {/* <small className="text-muted">
                                 Probability of progression given patient
                                 characteristic.<br />Equation: <code>P(progression | characteristic)</code>. 
                                 </small> */}
                             </td>
-                            <td className='border-0' />
                         </tr>
                         <tr>
                             {/* <td className='fw-bold text-success border-start' colSpan={2}>Patient Characteristic</td> */}
@@ -45,7 +44,7 @@ export default function PatientView() {
                     <tbody>
                         { patient.characteristics.map((c, i) => (
                             <tr key={i}>
-                                <td className='text-start fw-semibold border-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.remove('col-highlight')) }}>
+                                <td className='text-start border-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(1)').forEach(el => el.classList.remove('col-highlight')) }}>
                                     {c.label}
                                 </td>
                                 <td className='text-start' onMouseEnter={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.add('col-highlight')) }} onMouseLeave={() => { document.querySelectorAll('tr td:nth-child(2)').forEach(el => el.classList.remove('col-highlight')) }}>
