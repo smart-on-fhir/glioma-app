@@ -29,7 +29,7 @@ export default function PatientView() {
                                 <small className="text-muted">
                                 {/* Probability of outcome given patient
                                 characteristic.<br /> */}
-                                Equation: <code>P(progression | characteristic)</code>
+                                Equation: <code>P(outcome | characteristic)</code>
                                 </small>
                             </td>
                         </tr>
