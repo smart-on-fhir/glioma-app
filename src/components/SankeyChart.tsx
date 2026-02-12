@@ -223,7 +223,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                                     weight: weights[column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                                 },
                                 dataLabels: {
-                                    format: selected ? '{point.name} ▶︎' : '{point.name}',
+                                    // format: selected ? '{point.name} ▶︎' : '{point.name}',
                                     style: {
                                         color: selected ? '#000' : '#666666',
                                         textOutline: selected ? '1px #FFFC' : '1px #FFF6'
@@ -241,7 +241,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                                         weight: weights[column1 + ':' + row[column1]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                                     };
                                     node.dataLabels = {
-                                        format: '{point.name} ▶︎',
+                                        // format: '{point.name} ▶︎',
                                         style: {
                                             color: '#000',
                                             textOutline: '1px #FFFC'
@@ -263,7 +263,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                                 weight: weights[column2 + ':' + row[column2]!.replace('cumulus__none', 'NOT_MENTIONED')] || 0,
                             },
                             dataLabels: {
-                                format: selected ? '{point.name} ▶︎' : '{point.name}',
+                                // format: '{point.name}',
                                 labelRank: selected ? 2 : 0,
                                 style: {
                                     color: selected ? '#000' : '#6382a1',
