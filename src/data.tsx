@@ -194,9 +194,9 @@ export const patients: Patient[] = [
                 label: 'Glioma Grade',
                 value: 'Grade I benign',
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "62%" },
-                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/47", value: "92%" },
-                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/48", value: "43%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "68%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/47", value: "89%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/48", value: "40%" },
 
                     // radiographic: null,
                     // functional: null,
