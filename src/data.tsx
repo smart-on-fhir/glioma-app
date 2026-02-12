@@ -263,7 +263,7 @@ export const patients: Patient[] = [
             },
             {
                 label: 'Tumor Surgery Extent',
-                value: <><b>Partial resection</b> <span className="text-secondary">(N = 30)</span></>,
+                value: <><b>Partial resection</b> <span className="text-secondary">(N = 77)</span></>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "77%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "77%" },
@@ -361,7 +361,7 @@ export const columns: Record<string, ColumnDescriptor> = {
         description: "Visual acuity (e.g. improving, declining, stable, etc)"
     },
     visual_status_bin: {
-        label: "Visual Acuity Progression",
+        label: "Visual Decline",
         description: "Visual acuity (e.g. improving, declining, stable, etc)"
     },
     tx_specific: {

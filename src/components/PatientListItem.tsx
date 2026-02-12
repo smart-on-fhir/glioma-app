@@ -11,7 +11,7 @@ export default function PatientListItem({ patient }: { patient: Patient }) {
                 <span className="text-muted">&nbsp;&nbsp;&nbsp;DOB: </span>{formatDate(patient.dob)}
                 <span className="text-muted">&nbsp;&nbsp;&nbsp;MRN: </span>{patient.mrn}
             </p>
-            <p className="small">{patient.description}</p>
+            <p>{patient.description}</p>
         </div>
     );
 }

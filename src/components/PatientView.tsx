@@ -22,14 +22,15 @@ export default function PatientView() {
                     <thead>
                         <tr>
                             <td colSpan={2} rowSpan={2} className='align-top'>
-                                <h5 className='text-success'>{patient.name} <small className='text-muted'>({patient.mrn})</small></h5>
+                                <h5 className='text-success'>Patients matching {patient.firstName}'s glioma characteristics</h5>
                             </td>
                             <td colSpan={3} className=''>
-                                <h5 className='text-success'>Observed outcome rates for patients like {patient.firstName}</h5>
-                                {/* <small className="text-muted">
-                                Probability of progression given patient
-                                characteristic.<br />Equation: <code>P(progression | characteristic)</code>. 
-                                </small> */}
+                                <h5 className='text-success mb-0'>Observed outcome rates for patients like {patient.firstName}</h5>
+                                <small className="text-muted">
+                                {/* Probability of outcome given patient
+                                characteristic.<br /> */}
+                                Equation: <code>P(progression | characteristic)</code>
+                                </small>
                             </td>
                         </tr>
                         <tr>
