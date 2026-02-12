@@ -3,6 +3,7 @@ export const patients: Patient[] = [
         // Patient metadata
         // ---------------------------------------------------------------------
         name: "Teresa Anderson",
+        firstName: "Teresa",
         gender: "Female",
         dob: "2020-03-15",
         mrn: "C114759",
@@ -128,6 +129,7 @@ export const patients: Patient[] = [
         // Patient metadata
         // ---------------------------------------------------------------------
         name: "Nadine Esperanza",
+        firstName: "Nadine",
         gender: "Female",
         dob: "2012-01-05",
         mrn: "C136530",

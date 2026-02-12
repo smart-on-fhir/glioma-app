@@ -4,6 +4,7 @@ declare type Patient = {
     dob: string // YYYY-MM-DD format
     gender: string;
     description: string;
+    firstName: string;
     
     treatmentClass: string[];
 
