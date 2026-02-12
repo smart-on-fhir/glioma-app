@@ -162,9 +162,8 @@ export const patients: Patient[] = [
             {
                 label: 'Histology',
                 value: <><b>Pilocytic astrocytoma</b> <span className="text-secondary"></span></>,
-                link: 'https://www.smartcumulus.org/pcx/views/6',
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/24", value: "69%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/20", value: "69%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/26", value: "93%" },
                     visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/25", value: "43%" },
 
@@ -207,7 +206,6 @@ export const patients: Patient[] = [
             {
                 label: 'Age at Diagnosis',
                 value: <><b>2 years</b> <span className="text-secondary"></span></>,
-                link: 'https://www.smartcumulus.org/pcx/views/8',
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/30", value: "62%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/28", value: "84%" },
