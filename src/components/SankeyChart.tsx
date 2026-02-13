@@ -151,7 +151,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             borderWidth: 1,
             headerFormat: null,
             useHTML: true,
-            outside: true,
+            outside: false,
             // pointFormat: '{point.fromNode.name} <b>\u2192</b> {point.toNode.name}: <b>{point.weight}</b> patients',
             // nodeFormat: '{point.name}: <b>{point.sum}</b> patients',
             formatter: function(this: any) {
