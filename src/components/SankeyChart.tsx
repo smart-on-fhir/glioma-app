@@ -62,6 +62,8 @@ function getColorForNode(column: string, value: string): string {
         "symptom_burden_bin:NOT_MENTIONED"  : '#DDDDDD',
         "visual_status_bin:IMPROVING"       : '#99EE99',
         "visual_status_bin:DECLINING"       : '#ff9999',
+        "clinical_trial_status:AVAILABLE_AND_ELIGIBLE": '#99EE99',
+        "clinical_trial_status:AVAILABLE_NOT_ELIGIBLE": '#ff9999',
     };
     return map[String(column + ':' + value) as keyof typeof map] || '#DDDDDD';
 }

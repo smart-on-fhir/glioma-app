@@ -380,4 +380,8 @@ export const columns: Record<string, ColumnDescriptor> = {
         description: "Healthcare Site Name",
         enabled: false
     },
+    clinical_trial_status: {
+        label: "Clinical Trial Eligibility",
+        description: "Clinical Trial Eligibility",
+    }
 };
