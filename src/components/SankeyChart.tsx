@@ -195,7 +195,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                     enabled: true,
                     // overlap: true,
                     verticalAlign: 'middle',
-                    // overflow: 'allow',
+                    overflow: 'allow',
                     allowOverlap: true,
                     padding: 0,
                     style: {
