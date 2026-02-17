@@ -128,7 +128,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
             //     type: 'xy'
             // },
             // panKey: 'shift',
-            height: 650,
+            height: 700,
             margin: [10, 0, 10, 0],
         },
         exporting: {
@@ -187,17 +187,21 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                 nodeWidth  : '20%',
                 nodeAlignment: 'top',
                 nodeDistance: '100%',
-                nodePadding: 6,
+                nodePadding: 8,
                 borderRadius: 0, 
                 // colorByPoint: true,
                 color: SELECTION_COLOR + '60', // default color with transparency
                 dataLabels: {
                     enabled: true,
-                    overlap: true,
+                    // overlap: true,
+                    verticalAlign: 'middle',
+                    // overflow: 'allow',
+                    allowOverlap: true,
+                    padding: 0,
                     style: {
                         textOutline: '1px #FFF8',
                         fontWeight : 'bold',
-                        fontSize   : '14px',
+                        fontSize   : '13px',
                         fontFamily : 'sans-serif',
                     }
                 }
