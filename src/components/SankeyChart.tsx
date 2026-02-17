@@ -187,7 +187,7 @@ export default function SankeyChart({ patient }: { patient: Patient }) {
                 nodeWidth  : '20%',
                 nodeAlignment: 'top',
                 nodeDistance: '100%',
-                nodePadding: 8,
+                nodePadding: 10,
                 borderRadius: 0, 
                 // colorByPoint: true,
                 color: SELECTION_COLOR + '60', // default color with transparency
