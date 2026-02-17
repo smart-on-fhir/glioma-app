@@ -26,9 +26,6 @@ function isValidRow(row: Record<string, any>, a: string, b: string) {
         if (col === CNT_COLUMN && row[col] === null) {
             return false;
         }
-        if (row[col] === 'CLINICAL_TRIAL') {
-            return false;
-        }
         // Any row that has data on columns other than a, b, or cnt is invalid for our purposes
         if (col !== a && col !== b && col !== CNT_COLUMN && row[col] !== null) {
             return false;
