@@ -162,11 +162,11 @@ export const patients: Patient[] = [
             {
                 label: 'Histology',
                 value: <><b>Pilocytic astrocytoma</b> </>,
-                link: <a href="https://www.smartcumulus.org/pcx/views/53" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 106)</a>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/53" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 143)</a>,
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/20", value: "69%" },
-                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/26", value: "93%" },
-                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/25", value: "43%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/20", value: "52%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/26", value: "72%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/25", value: "32%" },
 
                     // radiographic: (
                     //     <>
@@ -195,9 +195,9 @@ export const patients: Patient[] = [
                 value: <><b>WHO Grade I</b> </>,
                 link: <a href="https://www.smartcumulus.org/pcx/views/12" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 82)</a>,
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "68%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/21", value: "67%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/47", value: "89%" },
-                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/48", value: "40%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/48", value: "23%" },
 
                     // radiographic: null,
                     // functional: null,
@@ -208,10 +208,10 @@ export const patients: Patient[] = [
             {
                 label: 'Age at Diagnosis',
                 value: <><b>2 years</b> </>,
-                link: <a href="https://www.smartcumulus.org/pcx/views/61" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 69)</a>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/61" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 70)</a>,
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/30", value: "62%" },
-                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/28", value: "84%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/30", value: "61%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/28", value: "83%" },
                     visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/29", value: "49%" },
 
                     // radiographic: (
@@ -239,11 +239,11 @@ export const patients: Patient[] = [
             {
                 label: 'Tumor Location',
                 value: <><b>Hypothalamic</b> </>,
-                link: <a href="https://www.smartcumulus.org/pcx/views/54" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 64)</a>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/54" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 65)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/31", value: "75%" },
-                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/33", value: "89%" },
-                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/32", value: "69%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/33", value: "91%" },
+                    visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/32", value: "68%" },
 
                     // radiographic: null,
                     // functional: null,
@@ -254,7 +254,7 @@ export const patients: Patient[] = [
             {
                 label: 'Tumor Mass Effect',
                 value: <><b>Hydrocephalus</b> </>,
-                link: <a href="https://www.smartcumulus.org/pcx/views/55" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 223)</a>,
+                link: <a href="https://www.smartcumulus.org/pcx/views/55" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 225)</a>,
                 progressionEvidence: {
                     progression    : { link: "https://www.smartcumulus.org/pcx/views/34", value: "68%" },
                     symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/36", value: "90%" },
@@ -271,8 +271,8 @@ export const patients: Patient[] = [
                 value: <><b>Partial resection</b> </>,
                 link: <a href="https://www.smartcumulus.org/pcx/views/57" target="_blank" rel="noopener noreferrer" className="float-right text-decoration-none small opacity-75">(N = 77)</a>,
                 progressionEvidence: {
-                    progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "77%" },
-                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "77%" },
+                    progression    : { link: "https://www.smartcumulus.org/pcx/views/37", value: "93%" },
+                    symptomsPresent: { link: "https://www.smartcumulus.org/pcx/views/46", value: "79%" },
                     visionDecline  : { link: "https://www.smartcumulus.org/pcx/views/38", value: "50%" },
                     
                     // radiographic: null,
